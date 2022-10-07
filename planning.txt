@@ -1,0 +1,145 @@
+Lundi 10/10
+---------------------------------------
+9h-9h30 : Introduction
+Presentation, resume rapide des parcours, des competences en informatique, et des
+raisons de l'interet pour la formation.
+Detailler le planning du cursus et lister les objectifs de la formation.
+
+9h30-11h : Mise en place de l'espace de travail :
+
+- Presentation des differents editeurs de texte
+Quelques uns des meilleurs IDE actuels:
+
+		Definition d'IDE (Edition de texte, git-support, tasks planning, teamwork features...)
+		- VS (Dev par Microsoft, l'un des meilleurs IDE pour le web de maniere G)
+		- VSCode (Version gratuite de VS, lightweight mais quelques features en moins)
+		- Atom (Dev par Github, soutenu et utilise par Facebook. git-support excellent, editeur minimaliste mais assez configurable)
+		- Vim (Cree en 1976, version improved sortie en 1991, neo-improved en 2014. Open-Source, ameliorations constantes, communautes actives).
+
+- Installation de Visual Studio Code
+- Integration de git bash (https://fr.acervolima.com/comment-integrer-git-bash-avec-visual-studio-code/)
+- Installation de node.js (https://nodejs.org/fr/download/)
+- Creation d'un compte github personnel pour la formation
+- Connexion au compte github sur le terminal VS Code
+- Creation d'un repertoire de travail personnel sur le repo
+- Initiation aux commandes git basiques
+
+11h - 12h30 : Initiation aux commandes Linux de base
+- Resolution collaborative du TP_Linux_01
+
+13h30 - 16h : Manipulation des commandes Linux
+- TP_Linux_02
+
+16h - 17h :
+- Shell scripts (si il reste assez de temps)
+
+---------------------------------------
+Mardi 11/10
+---------------------------------------
+
+9h-11h : Introduction a JS
+- Presentation de HTML5 et CSS3 (exemples/intro)
+- DOM (Domain Object Model) (https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.wikipedia.org%2Fwiki%2FDocument_Object_Model&psig=AOvVaw3SLKi6DJs8LkxCoPYPmvtO&ust=1665153516926000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCJjD7bDqy_oCFQAAAAAdAAAAABAD) (5mn)
+- Presentation de Javascript
+- Creation d'une page HTML et d'un fichier CSS
+- Linkage d'un fichier script.js
+- Contextes d'utilisation de JS
+
+11h-12h30 : Premieres notions de JS
+- Analyse d'un cas d'utilisation concret d'un script js (libc.js)
+- Variables (declarations, portees des donnees, types de donnees, conversions, affectations)
+- Fonctions
+- Structures de controles (conditions, switch blocks)
+- Boucles
+- Analyses de fonctions d'exemples en JS
+- Exemple d'utilisation de la recursivite (new_iteration_way.js)
+
+13h30-16h : TP bases JS + Correction
+
+16h - 17h :
+- Pieges du typage dynamique
+- Type de donnees JSON (objets)
+- L'objet console
+- Constructeurs et "this"
+- Methodes d'un objet
+
+---------------------------------------
+Mercredi 12/10
+---------------------------------------
+9h - 10h :
+- TP Cylindre : Creer un objet Cylindre. Cet objet doit contenir deux variables :
+le rayon de la base du cylindre, et sa hauteur. Cylindre doit aussi contenir une
+methode appelee "get_volume", qui retournera le volume du cylindre en fonction
+des deux parametres initialement passes au constructeur.
+
+10h - 11h30:
+- TP horloge
+	Creer un objet "Clock" qui stocke l'heure avec trois variables. L'objet doit
+	comporter une methode "tick", permettant de faire s'ecouler une seconde. Les
+	heures et les minutes doivent suivre en consequence. Utiliser setInterval pour
+	appeler cette methode une fois par seconde dans le script JS, et afficher le
+	resultat sous forme lisible dans le paragraphe contenant l'id "hour" avec le
+	formatage de votre choix.
+
+11h30 - 12h30:
+- Correction et ameliorations du TP horloge
+
+13h30 - 16h :
+- TP Calculatrice
+	Creer un objet "calculatrice" avec une methode par operation, et une methode
+	chargee de traiter la chaine de caracteres renseignee par l'utilisateur pour
+	en extraire les deux facteurs ainsi que le signe de l'operation. La
+	chaine sera fournie en parametre d'une fonction appelee par un formulaire sur
+	la page HTML. La fonction de traitement doit afficher une erreur dans
+	la console lorsque le signe d'operation est incorrect.
+
+16h - 17h :
+- Correction et ameliorations du TP calculatrice (lisibilite du code, gestion des differents cas d'erreur, transition vers regexp)
+
+---------------------------------------
+Jeudi 12/10
+---------------------------------------
+9h - 9h30 : Introduction aux regexp
+
+9h30 - 11h : Exercices regexp
+
+11h - 12h30 : TP new_user
+
+13h30 - 14h : Correction du TP
+
+14h - 15h30:
+- Fonctions immediates et anonymes
+- Objet "window" ou le contexte global
+- Document Object Model (DOM)
+- Recuperer des elements HTML via l'objet
+- Modifier les contenus d'elements HTML
+- Modification du DOM, suppression et création d'éléments
+- Manipulation des CSS
+- Gestion des evenements
+
+15h30 - 17h : TP Jeu de la vie
+
+---------------------------------------
+Vendredi 13/10
+---------------------------------------
+9h - 10h : Correction TP Jeu de la vie
+
+10h - 12h30 : Upgrade graphique du TP Jeu de la vie
+
+13h30 - 15h30 :
+Rattrapage (les notions mal comprises / mal assimilees sont revues)
+
+15h30 - 17h :
+Thematiques reclamees par les formes
+- Optimisation du code en JS
+- Bonnes pratiques de lisibilite
+- Cas d'utilisation du JS en entreprise
+- Outils navigateur
+
+
+Adresse : Bureau-Club 7 rue Leo Delibes
+Horaires : 9-17h 7h/j
+Bons self a l'acceuil (occasionnel)
+Point Semaine
+Extranet
+Signer les emargements tous les jours

@@ -1,0 +1,26 @@
+Lundi 10/10
+---------------------------------------
+9h-9h30 : Introduction
+Presentation, resume rapide des parcours, des competences en informatique, et des
+raisons de l'interet pour la formation.
+Detailler le planning du cursus et lister les objectifs de la formation.
+
+9h30-11h : Mise en place de l'espace de travail :
+
+- Presentation des differents editeurs de texte
+- Installation de Visual Studio Code
+- Integration de git bash (https://fr.acervolima.com/comment-integrer-git-bash-avec-visual-studio-code/)
+- Installation de node.js (https://nodejs.org/fr/download/)
+- Creation d'un compte github personnel pour la formation
+- Connexion au compte github sur le terminal VS Code
+- Creation d'un repertoire de travail personnel sur le repo
+- Initiation aux commandes git basiques
+
+11h - 12h30 : Initiation aux commandes Linux de base
+- Resolution collaborative du TP_Linux_01
+
+13h30 - 16h : Manipulation des commandes Linux
+- TP_Linux_02
+
+16h - 17h :
+- Shell scripts (si il reste assez de temps)

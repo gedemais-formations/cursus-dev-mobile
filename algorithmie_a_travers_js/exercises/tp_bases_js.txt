@@ -1,0 +1,31 @@
+Exercice 1 :
+fichier de rendu : bases/variables.js
+Declarez les variables suivantes dans un fichier variables.js :
+- La variable "entier", qui contiendra la valeur 189.
+- La variable "chaine", qui contiendra la chaine de caracteres"189".
+- La variable "booleen", qui contiendra la valeur vraie.
+- La variable "flottant", qui contiendra la valeur 42.42
+
+Exercice 2 :
+fichier de rendu : bases/fonction.js
+Copiez la declaration des quatres variables depuis variables.js vers fonction.js.
+Ecrivez ensuite une fonction qui prend ces quatres variables en parametres, et
+qui les affiche avec console.log() avant de retourner la valeur 0.
+
+Exercice 3 :
+fichier de rendu : bases/tables.js
+Ecrivez une fonction table() qui prend deux nombres en parametres, et qui renvoie
+le resultat de leur multiplication. Ecrivez ensuite une fonction display_tab(),
+qui affichera a l'aide de table() les tables de multiplication de 1 a 10, avec
+un calcul par ligne.
+
+Exercice 4 :
+fichier de rendu : bases/conditions.js
+Ecrivez une fonction qui affichera tous les nombres de 1 a 100 etants premiers,
+et n'etant pas des multiples de 9.
+
+Exercie 5 :
+fichier de rendu : bases/fibonacci.js
+Ecrivez une fonction recursive qui prend en parametres un nombre, et qui renvoie
+la valeur correspondant a cet index dans la suite de fibonacci. Ecrivez ensuite
+une fonction qui affichera les 100 premieres valeurs de la suite de fibonacci.

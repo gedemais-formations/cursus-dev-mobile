@@ -1,0 +1,273 @@
+Presentation de Javascript
+
+	Un langage pour le Web:
+
+		Js est l'une des trois pierres angulaires du web a l'heure actuelle, avec
+		HTML et CSS. Ce langage comporte de nombreux frameworks et librairies,
+		ce qui le rend tres complet. Adapte a la fois pour des utilisations en
+		back et en front, sa polyvalence le propulse parmis les langages les plus utilises au monde.
+
+
+	Historique de JavaScript:
+
+		La premiere version de javascript a ete creee par Brendan Eich, puis presentee en 1995. Le langage connait depuis
+		des mises a jour regulieres. Jusqu'en juin 2015 (jquery time), la version de javascript actuelle etait appelee ES5
+		(ES pour ECMAScript, un ensemble de normes appliquees a des langages de scripting web, dont js).
+		A partir de Juin 2015, js est passe est a ES6, et a developpe de nouvelles versions tous les ans avec
+		ES7, ES8, etc... La version stable et actuellement utilisee de js est ES12 (sortie en juin 2021).
+
+
+	Les librairies JavaScript et l'écosystème:
+
+		En 2004, le nouveau navigateur Firefox (Fondation Mozilla) fait son
+		apparition, et se presente comme une alternative a Internet Explorer.
+		De nouveaux besoins de compatibilite sont necessaires aux programmeurs,
+		entrainant la creation de standards entre les differents navigateurs web.
+
+		Ici commence l'essor de JavaScript, qui developpe de nombreux frameworks
+		et librairies, permettant aux developpeurs de gerer les bugs et les
+		incompatibilites de maniere transparente. Parmis ces frameworks, on trouve
+		notamment jQuery, une API permettant aux developpeurs web de rediger des
+		scripts cote client (page HTML), sans se soucier des differentes
+		incompatibilites ou bugs entre les differents navigateurs sur lesquels
+		ces scripts s'executeront.
+
+		Mais les frameworks de JavaScript ne s'arreteront pas a regler les
+		problemes de compatibilite pour les developpeurs. Suite a cet essor,
+		de nombreux frameworks js ont fait leur apparition. Parmis les plus utilises :
+
+			- Angular, developpe par Google en 2016, est un framework compatible sur une
+				grande variete de navigateurs, permettant de creer des SPA (Single
+				Page Application). Ce framework est extremement populaire.
+
+			- React, developpe par Facebook, a connu un succes fulgurant a partir de 2014.
+				Ce framework est utilise pour creer des interfaces utilisateur sur les pages
+				web recevant un grand nombre de visites.
+				A l'instar d'Angular, il est open-source et tres populaire.
+
+			- Vue, cree par Evan You en 2014, est un framework front-end,
+				permettant comme Angular de creer des SPA, ainsi que des interface
+				utilisateurs et des web-applications.
+
+			Ces trois frameworks ont l'avantage d'etre open-source, ce qui veut
+			dire que n'importe quel membre de la communaute peut acceder au code
+			et y proposer des changements, et que n'importe quel developpeur peut
+			rejoindre cette communaute, a condition de participer de maniere active
+			et pertinente au projet.
+
+--------------------------------------------------------------------------------
+Creation d'une page html et d'un fichier css
+
+	Structuration typique d'une page Web, où placer le JavaScript ?
+
+Intro HTML5 CSS3
+
+		Un site web est generalement compose d'une ou plusieurs pages HTML, et de fichiers CSS associes a ces pages.
+		La balise <script> appelant du code en JavaScript peut etre positionnee.
+		n'importe ou sur la page, dans les balises <head>, <body>, et <footer>
+		en fonction de quand le script a besoin d'etre execute (si il necessite
+		certains elements sur la page, l'appel au script doit se faire apres leur declaration).
+
+________________________________________________________________________________
+Contextes d'utilisation de js:
+
+	Bases du langage
+		Le js est un langage dit multi-paradigmes (programmation fonctionnelle, POO, heritage prototypique)
+		Explication des differents paradigmes combines par js.
+
+	Différentes façons d'intégrer JavaScript a un projet:
+		Le JavaScript peut etre utilise dans une page web de trois manieres principales:
+			- Ecrire le code directement dans une balise <script> dans le fichier HTML.
+			- Renseigner un chemin vers un fichier contenant le code source en JavaScript.
+			- Ecrire le code dans un attribut de balise HTML prevu pour lancer un script js a partir d'un evenement.
+		A noter que la premiere methode est generalement assez peu pratique pour maintenir un code HTML lisible.
+
+________________________________________________________________________________
+Premieres notions de js:
+
+	Exemple de syntaxe de base
+		example linking
+
+		Un langage à base de fonctions:
+			Le JavaScript, comme beaucoup de langages, permet de declarer des fonctions.
+			Une fonction (au sens informatique du terme) est une suite d'instructions
+			encapsulees dans une zone precise, portant un nom precis, grace au quel
+			cette suite peut etre executee depuis n'importe ou. Une fonction peut
+			prendre un/plusieurs parametres, a savoir des objets grace aux quels elle
+			pourra effectuer son travail. Une fonction peut egalement retourner un
+			resultat suite a ses instructions.
+
+			example libc (lignes 0-30)
+
+		La fonction, un élément de base du langage
+			Dans la majorite des script js, les instructions sont divisees en plusieurs
+			fonctions ayant chacunes des taches precises a effectuer, afin de construire
+			une architecture fonctionnelle. Le concept de fonction est central en js,
+			comme c'est le cas pour une majorite des langages de programmation.
+
+	Déclarations et portées des données
+		example variables
+
+	var et let, portée des données
+		example variables_types
+
+	Types de données, conversions et affectations
+		example conversions
+		example arrays
+
+	Structures de contrôle
+		example conditions
+
+	Boucles
+		example boucles
+
+	Types de données JSON
+		example object
+
+	Pièges du typage dynamique
+		example pieges_typage
+
+	L'objet "console"
+		example console
+
+	Constructeurs et "this":
+		Nous avons precedemment vu comment creer un objet (book). Cependant, cet
+		objet etait unique et ne pouvait pas etre duplique pour stocker les informations
+		de plusieurs livres, a moins de declarer plusieurs instances de l'objet
+		en question. Imaginez maintenant que l'on tienne une bibliotheque, et
+		qu'il faille declarer un nouvel objet book dans le code pour chaque nouveau livre...
+
+		Heureusement, les fonctions constructeurs sont la pour nous aider !
+		Elles permettent de declarer un objet a partir d'une fonction, ce qui facilite
+		sa creation.
+
+	Valeur de "this":
+		Dans une fonction constructeur, "this" designe l'objet cree par la fonction.
+		On peut donc assigner des attributs (sous-variables) a this, et leur donner les valeurs
+		desirees pour notre objet, en les passant en parametre du constructeur.
+
+		Maintenant que la notion de fonction vous a ete introduite,
+		il faut savoir qu'un objet peut egalement contenir des fonctions.
+		Dans ce cas, on appelle ces fonctions les "methodes" de l'objet.
+		On peut appeler n'importe quel methode d'un objet, tant que son instance est
+		disponible, et que l'on peut fournir a ces methodes les parametres necessaires.
+
+		example constructor.js
+
+--------------------------------------------------------------------------------
+
+	Objet "window" ou le contexte global:
+		L'objet window represente la fenetre ouverte dans le navigateur. Cet
+		objet comporte plusieurs attributs, dont une appelee document. Il s'agit
+		d'une reference vers le document contenu dans window, a savoir notre page
+		web. L'objet document est accessible par defaut en JavaScript, et permet
+		d'influer sur la composition de la page, et sur les donnees que ses briques utilisent.
+		Cet objet document joue donc un role cle lorsque l'on souhaite utiliser
+		javascript pour rendre une page dynamique.
+
+	Fonctions immédiates et anonymes:
+		Comme vous l'avez probablement remarque, il n'est pas obligatoire de nommer
+		une fonction quand on la declare en js. Les fonctions sans nom sont appelees
+		fonctions anonymes, et sont la plupart du temps renseignees sous forme
+		d'expressions, et non declarees comme des fonctions classiques.
+
+	Les fonctions fléchées:
+		example arrow_function
+
+	Exercice rec.
+
+Contextes d'exécution:
+	Les contextes d'executions sont des informations permettant au navigateur
+	de se reperer dans l'execution du code source de la page. Ils sont stockes
+	sous la forme d'une pile, contenant toujours au moins un element, appele
+	contexte "global".
+
+Document Object Model (DOM)
+Les objets du navigateur
+	http://www.w3bai.com/fr/js/js_ex_browser.html
+	window : Permet entre autres de faire apparaitre une nouvelle fenetre, de la redimensionner, la deplacer, et la fermer. Contient l'objet document.
+	screen : Informations sur l'ecran du visiteur (hauteur, largeur, hauteur/largeur disponibles pour la fenetre, profondeur de couleur, de pixel)
+	location : Informations sur la page consultee actuellement, et son URL. Permet egalement de charger une autre adresse.
+	history : Permet de consulter et d'ouvrir des liens dans l'historique. Permet aussi la creation de boutons "precedent" et "suivant" sur une page.
+	navigator : Meta-informations about de navigator (Nom, Version, Moteur, Cookies, Plateforme, Langue, JavaScript active ou non)
+	popup : Well...
+	timing : Gestion de l'ecoulement du temps dans le navigateur.
+
+Récupérer des éléments
+	L'objet document comporte de nombreux attributs, permettant de recuperer la
+	totalite des elements sur une page HTML via JavaScript.
+	https://javascript.developpez.com/actu/84990/Les-methodes-de-recuperation-des-elements-du-DOM/
+
+Modifier les contenus																		\
+	On peut modifier les attributs et valeurs des balises HTML en passant par le DOM.		|
+	Il suffit de selectionner l'element que l'on souhaite modifier (jQuery/getElementbyId),	|==> https://www.w3schools.com/js/js_htmldom_html.asp 
+	puis d'ecraser la valeur de son attribut innerHTML, ce qui aura pour effet de modifier	|
+	le contenu de la balise selectionee. On peut egalement modifier les attributs de cette	|
+	balise, en y accedant directement via l'objet element selectionne.						|
+																							|
+	exercice horloge																		|
+																							|
+Modification, insertion et suppression d'éléments
+https://www.pierre-giraud.com/javascript-apprendre-coder-cours/dom-ajout-modification-suppression/
+
+Manipulation des CSS
+https://www.w3schools.com/js/js_htmldom_css.asp
+
+Gestion des évènements
+https://developer.mozilla.org/fr/docs/Web/Events
+https://sweetohm.net/blog/196.html
+
+exercice gen_color
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+Jour 3
+
+Gestion de la validation des données de formulaires avec des Regular Expressions.
+https://cs.lmu.edu/~ray/notes/regex/
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/RegExp
+
+exercice new_user
+
+Optimisation et simplification du code avec l'heritage prototypique.
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+
+exercice prototypes.
+
+Optimisations du code :
+https://www.w3schools.com/js/js_performance.asp
+
+Jquery
+https://www.w3schools.com/jquERy/jquery_intro.asp
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+
+Les outils du navigateur:
+https://developer.mozilla.org/fr/docs/Learn/Common_questions/What_are_browser_developer_tools
+
+Jour 4
+Ajax
+Architecture des sites Web avec et sans Ajax
+Asynchronisme dans le navigateur
+XMLHttpRequest et HTML 5
+Gestion d'erreurs et timeout
+Exemples de travaux pratiques (à titre indicatif)
+Ecriture d'un projet qui récupère les données d'un serveur
+Les afficher sur une feuille avec Ajax et JSON
+Remplacement de diverses écritures réalisées par des appels à des fonctions jQuery
+
+
+
+Nouveautés ECMAScript 6 à 11
+L'apport majeur de la version 6 (2015) de JavaScript
+Les autres apports
+Avantages liés pour le programmeur
+
+--------------------------------------------------------------------------------
+
+
