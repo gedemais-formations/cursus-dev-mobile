@@ -28,7 +28,7 @@ Quelques uns des meilleurs IDE actuels:
 - Resolution collaborative du TP_Linux_01
 
 13h30 - 16h : Manipulation des commandes Linux
-- TP_Linux_02
+- TP_Linux_02 + Correction
 
 16h - 17h :
 - Shell scripts (si il reste assez de temps)
@@ -37,7 +37,7 @@ Quelques uns des meilleurs IDE actuels:
 Mardi 11/10
 ---------------------------------------
 
-9h-11h : Introduction a JS
+9h-10h30 : Introduction a JS
 - Presentation de HTML5 et CSS3 (exemples/intro)
 - DOM (Domain Object Model) (https://www.google.com/url?sa=i&url=https%3A%2F%2Ffr.wikipedia.org%2Fwiki%2FDocument_Object_Model&psig=AOvVaw3SLKi6DJs8LkxCoPYPmvtO&ust=1665153516926000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCJjD7bDqy_oCFQAAAAAdAAAAABAD) (5mn)
 - Presentation de Javascript
@@ -45,19 +45,20 @@ Mardi 11/10
 - Linkage d'un fichier script.js
 - Contextes d'utilisation de JS
 
-11h-12h30 : Premieres notions de JS
+10h30-12h30 : Premieres notions de JS
 - Analyse d'un cas d'utilisation concret d'un script js (libc.js)
-- Variables (declarations, portees des donnees, types de donnees, conversions, affectations)
 - Fonctions
+- Variables (declarations, portees des donnees, types de donnees, conversions, affectations)
 - Structures de controles (conditions, switch blocks)
 - Boucles
-- Analyses de fonctions d'exemples en JS
 - Exemple d'utilisation de la recursivite (new_iteration_way.js)
+- Pieges du typage dynamique
+- Commentaires
+- Analyses de fonctions d'exemples en JS
 
 13h30-16h : TP bases JS + Correction
 
 16h - 17h :
-- Pieges du typage dynamique
 - Type de donnees JSON (objets)
 - L'objet console
 - Constructeurs et "this"
@@ -107,7 +108,14 @@ Jeudi 12/10
 
 13h30 - 14h : Correction du TP
 
-14h - 15h30:
+15h30 - 17h : TP Jeu de la vie (pseudocode)
+
+---------------------------------------
+Vendredi 13/10
+---------------------------------------
+9h - 10h : Correction TP Jeu de la vie
+
+10h - 11h :
 - Fonctions immediates et anonymes
 - Objet "window" ou le contexte global
 - Document Object Model (DOM)
@@ -117,14 +125,7 @@ Jeudi 12/10
 - Manipulation des CSS
 - Gestion des evenements
 
-15h30 - 17h : TP Jeu de la vie
-
----------------------------------------
-Vendredi 13/10
----------------------------------------
-9h - 10h : Correction TP Jeu de la vie
-
-10h - 12h30 : Upgrade graphique du TP Jeu de la vie
+11h - 12h30 : Upgrade graphique du TP Jeu de la vie
 
 13h30 - 15h30 :
 Rattrapage (les notions mal comprises / mal assimilees sont revues)
@@ -136,7 +137,7 @@ Thematiques reclamees par les formes
 - Cas d'utilisation du JS en entreprise
 - Outils navigateur
 
-
+--------------------------------------------------------------------------------
 Adresse : Bureau-Club 7 rue Leo Delibes
 Horaires : 9-17h 7h/j
 Bons self a l'acceuil (occasionnel)

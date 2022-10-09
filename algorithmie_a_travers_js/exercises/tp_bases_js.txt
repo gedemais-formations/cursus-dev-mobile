@@ -5,26 +5,46 @@ Declarez les variables suivantes dans un fichier variables.js :
 - La variable "chaine", qui contiendra la chaine de caracteres"189".
 - La variable "booleen", qui contiendra la valeur vraie.
 - La variable "flottant", qui contiendra la valeur 42.42
+- Le tableau "array", qui contiendra les valeurs des variables precedentes
+
 
 Exercice 2 :
 fichier de rendu : bases/fonction.js
-Copiez la declaration des quatres variables depuis variables.js vers fonction.js.
-Ecrivez ensuite une fonction qui prend ces quatres variables en parametres, et
+Copiez la declaration des cinq variables depuis variables.js vers fonction.js.
+Ecrivez ensuite une fonction qui prend ces cinq variables en parametres, et
 qui les affiche avec console.log() avant de retourner la valeur 0.
+Appelez ensuite cette fonction.
 
-Exercice 3 :
-fichier de rendu : bases/tables.js
-Ecrivez une fonction table() qui prend deux nombres en parametres, et qui renvoie
-le resultat de leur multiplication. Ecrivez ensuite une fonction display_tab(),
-qui affichera a l'aide de table() les tables de multiplication de 1 a 10, avec
-un calcul par ligne.
+
+Exercice 3 : bases/types.js
+- Ecrire une fonction qui prend une chaine de caractere en parametre, et qui renvoie la valeur entiere contenue dedans.
+- Ecrire une fonction qui prend une chaine de caractere en parametre, et qui renvoie la valeur flottante contenue dedans.
+- Ecrire une fonction qui prend un nombre entier en parametre, et qui renvoie une chaine de caracteres contenant sa valeur.
+- Ecrire une fonction qui prend un nombre flottant en parametre, et qui renvoie une chaine de caracteres contenant sa valeur.
+- Ecrire une fonction qui prend un booleen en parametre, et qui renvoie une chaine de caracteres contenant sa valeur.
+
 
 Exercice 4 :
+fichier de rendu : bases/array.js
+Copiez la declaration des cinq variables depuis variables.js vers types.js.
+Ecrivez ensuite une fonction qui prend array en parametre, et qui renvoie
+un tableau contenant les valeurs de array converties en chaines de caracteres.
+
+
+Exercice 5 :
+fichier de rendu : bases/tables.js
+Ecrivez une fonction table() qui prend un chiffre en parametres, et qui affiche sa
+table de multiplication  avec un calcul par ligne.. Ecrivez ensuite une fonction display_table(),
+qui affichera a l'aide de table() les tables de multiplication de 1 a 10.
+
+
+Exercice 6 :
 fichier de rendu : bases/conditions.js
 Ecrivez une fonction qui affichera tous les nombres de 1 a 100 etants premiers,
 et n'etant pas des multiples de 9.
 
-Exercie 5 :
+
+Exercie 7 :
 fichier de rendu : bases/fibonacci.js
 Ecrivez une fonction recursive qui prend en parametres un nombre, et qui renvoie
 la valeur correspondant a cet index dans la suite de fibonacci. Ecrivez ensuite
