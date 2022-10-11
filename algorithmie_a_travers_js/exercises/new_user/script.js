@@ -7,12 +7,11 @@
  * pouvez aussi vous servir d'autre chose, mais vous devrez utiliser un minimum
  * d'une regex par champ a parser.*/
 
-function check_scam_input(form)
-{
-	console.log(form.nom.value);
-	console.log(form.prenom.value);
-	console.log(form.dateDeNaissance.value);
-	console.log(form.numeroDeTelephone.value);
-	console.log(form.numeroDeCarteBleue.value);
-	console.log(form.codeDeSecurite.value);
+function check_scam_input(form) {
+  console.log(form.nom.value);
+  console.log(form.prenom.value);
+  console.log(form.dateDeNaissance.value);
+  console.log(form.numeroDeTelephone.value);
+  console.log(form.numeroDeCarteBleue.value);
+  console.log(form.codeDeSecurite.value);
 }
