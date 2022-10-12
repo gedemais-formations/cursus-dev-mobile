@@ -14,13 +14,16 @@ function table(nbr) {
 
 console.log(table(5));
 
-
-function mutiplie(nombre){
+//function qui toutes les tables de multiplication
+function mutiplie(){
 
     let maxPar = 10;
 
 
-   for(let a = 0; a< maxPar; a++ ){}
+   for(let a = 0; a<= maxPar; a++ ){
+
+    table(a)
+   }
 }
 
 mutiplie()
