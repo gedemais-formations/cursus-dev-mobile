@@ -1,4 +1,4 @@
-// fonction.js
+// fonction.js pour exercice 2
 function ma_fonction(entier, chaine, booleen, flottant,array)
 {
     console.log(entier);

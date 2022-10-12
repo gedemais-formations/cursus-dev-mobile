@@ -1,4 +1,4 @@
-// variables.js
+// variables.js : variables globales pour exercice1 et tous les autres
 let entier= 189;
 let chaine= "190";
 let booleen= true;
