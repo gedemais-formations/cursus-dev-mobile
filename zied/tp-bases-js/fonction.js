@@ -16,3 +16,22 @@ function affiche(entier, chaine, booleen, flottant, array)
     return 0;
 } 
 affiche(entier, chaine, booleen, flottant, array);
+
+/*
+un("12345"); 
+un("8521");
+un(chaine);
+
+deux("3.14");
+deux("5.5");
+deux(flottant);
+
+
+trois(entier);
+
+
+quatre(flottant);
+*/
+
+cinq(booleen);
+
