@@ -48,4 +48,12 @@ returnString(floatString)
 
 /* Ecrire une fonction qui prend un booleen en parametre, 
     et qui renvoie une chaine de caracteres contenant sa valeur. */
-    
+
+let booleenString = true;
+
+function returnBooleen(booleen) {
+    let stringOfBooleen = String(booleen);
+
+    console.log(stringOfBooleen);
+}
+returnBooleen(booleenString);
