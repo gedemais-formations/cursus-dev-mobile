@@ -5,9 +5,6 @@ Ecrivez ensuite une fonction qui prend ces cinq variables en parametres, et
 qui les affiche avec console.log() avant de retourner la valeur 0.
 Appelez ensuite cette fonction. */
 
-
-
-
 let entier = 189;
 let chaine = "189";
 let booleen = true;
