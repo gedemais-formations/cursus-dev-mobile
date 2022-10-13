@@ -1,9 +1,7 @@
 /*Exercice 3 : bases/types.js
 - Ecrire une fonction qui prend une chaine de caractere en parametre, et qui renvoie la valeur entiere contenue dedans.*/
 function ValEnt(nbr){
-
-    console.log(parseInt(nbr))
-    return 0
+    return parseInt(nbr)
 }
 ValEnt("10");
 
@@ -32,3 +30,9 @@ function string3(bool){
     console.log(bool.toString())
 }
 string3("true")
+
+let entier = 189;
+let chaine = "189";
+let booleen = true;
+let flottant = 42.2;
+let array = [entier, chaine, booleen, flottant]

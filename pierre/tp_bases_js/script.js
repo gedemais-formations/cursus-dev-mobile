@@ -13,3 +13,7 @@ let retourexerc4= exercice4(array);
 console.log(retourexerc4);
 // exercice5
 display_table();
+// exercice6
+conditions();
+// exercice7
+exemple7_fibonacci();

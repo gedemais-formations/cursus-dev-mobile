@@ -8,14 +8,14 @@ var entier = 189;
 var chaine = '189';
 let booleen = true;
 let flottant = 42.42;
-var array =[  entier,chaine,true, flottant];
+var array = [entier, chaine, true, flottant];
 
-function tableau(array){
+function tableau(array) {
 
-    return [array[0].toString(), 
+    return [array[0].toString(),
     array[1].toString(),
-     array[2].toString(),
-      array[3].toString()]; 
+    array[2].toString(),
+    array[3].toString()];
 
 }
 console.log(tableau(array));
