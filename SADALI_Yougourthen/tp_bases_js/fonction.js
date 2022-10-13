@@ -1,10 +1,11 @@
-var entier = 189;
-var chaine = "189";
+let entier = 189;
+let chaine = "189";
 let miam= "150";
-let character = 189;
-var booleen = true;
-var flottant = 42.42;
-var tab=new Array(entier, chaine, booleen, flottant);
+let poulet = 120;
+let couscous = "35";
+let booleen = true;
+let flottant = 42.42;
+let tab=new Array(entier, chaine, booleen, flottant);
 
 function tableau(entier, chaine, booleen, flottant, tab) {
     console.log(entier);
@@ -25,8 +26,9 @@ function string(chaine) {
 }
 
 console.log (string(chaine));
+ 
 
-
+console.log();
 
 function lettre(miam) {
     console.log (typeof(miam));
@@ -39,10 +41,27 @@ console.log (lettre(miam));
 
 
 
-function caractere(character) {
-
-    resultat = string(character);
-    return character;
+function transformer(poulet) {
+    let resultat = toString(poulet);
+    console.log (typeof(resultat));
+    return poulet;
     }
     
-    console.log (caractere(character));
+    console.log (transformer(poulet));
+
+    function transformer2(couscous) {
+        let resultat2 = toString(couscous);
+        console.log (typeof(resultat2));
+        return couscous;
+        }
+        
+        console.log (transformer2(couscous));
+
+
+        function transformer3(booleen) {
+            let resultat3 = toString(booleen);
+            console.log (typeof(resultat3));
+            return booleen;
+            }
+            
+            console.log (transformer3(booleen));
