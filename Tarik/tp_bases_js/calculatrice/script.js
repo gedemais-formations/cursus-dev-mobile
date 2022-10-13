@@ -37,7 +37,7 @@ function stringToFloat(array) { //transforme les types des nombres de string à 
     return arrayOfFloatAndInt;
 }
 
-function calculatrice(form) {
+function calculatrice(form) { //effectue les calculs 
     let operation = stringToFloat(form);
 
     for (let i = 1; i < operation.length; i++) {
