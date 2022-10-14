@@ -65,3 +65,7 @@ function transformer(poulet) {
             }
             
             console.log (transformer3(booleen));
+
+
+            
+           
