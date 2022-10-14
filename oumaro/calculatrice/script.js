@@ -59,7 +59,10 @@ function calculatrice(form) {
           break;
     
         case "%":
-            result = Number(tabOp[0]) / Number(tabOp[1]) / Number(tabOp[2]) ;
+            result = Number(tabOp[0]) / Number(tabOp[1]) / Number(tabOp[2]);
+            if(result == Infinity){
+                return resultat.innerHTML = `<p>0 = operation impossible </p>`;
+            }
           break;
     
         default:
@@ -84,6 +87,9 @@ function calculatrice(form) {
 
     case "%":
       result = tabOp[0] / tabOp[1];
+      if(result == Infinity){
+        return resultat.innerHTML = `<p> 0 = opération impossible </p>`;
+    }
       break;
 
     default:
