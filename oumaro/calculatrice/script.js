@@ -44,7 +44,7 @@ function calculatrice(form) {
 
 
 
-  if(tabOp.length > 2){
+  if(tabOp.length > 2 || tabOp.length == 3){
     switch (op) {
         case "+":
           result = Number(tabOp[0]) + Number(tabOp[1]) + Number(tabOp[2]) ;
@@ -69,8 +69,7 @@ function calculatrice(form) {
           console.log("je n'ai pas trouvé d'operation ");
       }
 
-  }else
-
+  }else 
 
     switch (op) {
     case "+":
@@ -95,6 +94,8 @@ function calculatrice(form) {
     default:
       console.log("je n'ai pas trouvé d'operation ");
   }
+
+  if(tabOp.length > 3) return resultat.innerHTML = `<p> je n'accepte que 3 chiffres maximum </p>`;
 
 
   resultat.innerHTML = `<p> ${result} </p>`;
