@@ -17,10 +17,12 @@ var array = [entier, chaine, booleen, flottant];
 function convertVariableToString(array){
     
    
-    return [array[0].toString(),
+    return [
+    array[0].toString(),
     array[1].toString(),
     array[2].toString(),
-    array[3].toString()];
+    array[3].toString()
+    ];
 
 }
 convertVariableToString(array);
