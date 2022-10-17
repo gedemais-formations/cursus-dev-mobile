@@ -1,6 +1,7 @@
 /* Example de la portee des donnees en js */
 // Variable globale
 var global_string = "Une chaine de caracteres accessible partout";
+const variable = 42;
 
 function nomDeLaFonction()
 {

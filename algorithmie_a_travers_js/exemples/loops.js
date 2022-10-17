@@ -1,5 +1,5 @@
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-const size = numbers.length
+const size = numbers.length;
 
 /* Imaginons que l'on veuille augmenter la valeur de chaque element du tableau
  * numbers. Nous pourrions ajouter 1 a chacune des valeurs manuellement.
@@ -12,8 +12,10 @@ const size = numbers.length
 console.log(numbers);
 
 for (let i = 0; i < size; i++)
-	numbers[i] += 1; // Peut aussi s'ecrire de la facon suivante : numbers[i]++.
+{
+	numbers[i]++; // Peut aussi s'ecrire de la facon suivante : numbers[i]++.
 					 // x++ equivaut a x += 1, et x-- equivaut a x -= 1.
+}
 
 console.log(numbers);
 

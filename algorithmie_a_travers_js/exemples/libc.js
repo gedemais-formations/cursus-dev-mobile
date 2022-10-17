@@ -30,6 +30,8 @@ function strlen(chaineDeCaracteres)
 	return result;
 }
 
+console.log(strlen("BOnjour"));
+
 console.assert(strlen("Bonjour") === 7, "strlen");
 
 /* Voici un example de fonction qui prend un parametre mais ne retourne rien.
