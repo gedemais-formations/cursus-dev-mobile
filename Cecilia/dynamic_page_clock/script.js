@@ -29,8 +29,26 @@ function Clock(heure, minute, seconde) {
     }
 
     this.display = function(){
+        let seconde;
+        let minute;
+        let heure;
+        if(this.seconde<10){
+            seconde = "0"+this.seconde;
+        }else{
+            seconde = this.seconde;
+        }
+        if(this.minute<10){
+            minute = "0"+this.minute;
+        }else{
+            minute = this.minute;
+        }
+        if(this.heure<10){
+            heure = "0"+this.heure;
+        }else{
+            heure = this.heure;
+        }
         let hour = document.getElementById('hour');
-        hour.textContent= this.heure +":"+this.minute+":"+this.seconde;
+        hour.textContent= heure +":"+minute+":"+seconde;
     }
 }
 
@@ -41,7 +59,7 @@ setInterval(async function tick()
 {
     clock.display();
     clock.tick();
-}, 1000);
+}, 10);
 /* setInterval est là pour permettre à la fonction tick() de s'executer toutes les 1000ms
 apres sa premiere execution (dans l'en-tete html par exemple). Vous pouvez modifier le
 délai de 1000ms pour faire vos tests.*/
