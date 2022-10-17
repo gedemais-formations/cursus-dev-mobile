@@ -3,12 +3,14 @@ let array = ['array', 'of', 'strings'];
 console.log(array);
 console.log('--------------------------------------------');
 
+var n = 1;
+\
 /* Pour acceder a un element du tableau, on indexe ce tableau avec un nombre n,
  * permettant d'acceder a (n + 1)eme element du tableau (+ 1 car le premier
  * element est toujours a 0). */
 
 // Pour afficher le premier element du tableau, on peut donc proceder de la sorte :
-console.log(array[0]);
+console.log(array[n]);
 
 // Et pour afficher le dernier element :
 console.log(array[array.length - 1]);

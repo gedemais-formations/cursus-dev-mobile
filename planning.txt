@@ -60,7 +60,7 @@ Mardi 11/10
 
 16h - 17h :
 - Type de donnees JSON (objets)
-- L'objet console
+- L'objet console (https://developer.mozilla.org/fr/docs/Web/API/Console)
 - Constructeurs et "this"
 - Methodes d'un objet
 
@@ -144,3 +144,16 @@ Bons self a l'acceuil (occasionnel)
 Point Semaine
 Extranet
 Signer les emargements tous les jours
+
+
+Ups :
+Cecilia - Mohammed
+Tarik - William
+Mansour - Martinaise
+Yann - Denis
+Pierre - Yougo
+
+Mids :
+Oumaro
+Hajar
+Zied

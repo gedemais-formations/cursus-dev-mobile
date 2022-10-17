@@ -1,17 +1,30 @@
-let entier = 189;
-let chaine = "189";
-let booleen = true;
-let flottant = 42.42;
-let tab = new Array(entier, chaine, booleen, flottant);
+// let entier = 189;
+// let chaine = "189";
+// let booleen = true;
+// let flottant = 42.42;
+// let tab = new Array(entier, chaine, booleen, flottant);
 
-function exercice4(tab) {
+// function exercice4(tab) {
     
-for (i=0; i<tab.length; i++)
- tab[i]=tab[i].toString();
+// for (i=0; i<tab.length; i++)
+//  tab[i]=tab[i].toString();
 
-  return tab;
-}
-console.log (exercice4(tab));
+//   return tab;
+// }
+// console.log (exercice4(tab));
+
+/*-------------------------------exemple boucle while----------------------------------*/
+// let i=0;
+//  while (i<10) {
+//   console.log ("bonjour"+i);
+//   i = i+1;
+//  }
+
+
+const chiffre= "entrez un nombre";
+ if (chiffre>10 || chiffre<0) {
+ console.log ("le chiffre n'est pas entre 0 et 10");
+ }
 
 /*--------------------------------------------------------------------*/
 

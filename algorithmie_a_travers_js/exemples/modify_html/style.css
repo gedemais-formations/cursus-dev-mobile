@@ -1,0 +1,13 @@
+body {
+	background-color : grey;
+}
+
+h1 {
+	background-color : white;
+}
+
+#text {
+	color : red;
+	font-size: 24px;
+	font-family: Verdana;
+}
