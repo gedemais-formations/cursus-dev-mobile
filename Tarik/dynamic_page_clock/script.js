@@ -13,7 +13,9 @@ function Clock(h, min, sec) {
     this.secondes = sec,
     this.tick = () => {
         this.secondes++;
-        if (this.secondes > 60 ) {
+        if (this.heures == 23 && this.minutes == 59 && this.secondes > 60) {
+            this.secondes, this.heures, this.minutes = 0;
+        }else if (this.secondes > 60 ) {
             this.secondes = 0;
             this.minutes++;
             if (this.minutes > 60) {
