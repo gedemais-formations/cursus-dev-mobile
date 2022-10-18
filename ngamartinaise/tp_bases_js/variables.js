@@ -16,5 +16,5 @@ var chaine = '189';
 let booleen = true;
 let flottant = 42.42;
 // je declarre un tableau avec les types
-var array =[  entier,chaine,true, flottant];
+var array =[ entier,chaine,true, flottant];
 

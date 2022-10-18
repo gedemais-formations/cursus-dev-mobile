@@ -12,7 +12,7 @@
 
 // Un objet se declare comme une variable. On lui assigne une valeur encodee en JSON, entre accolades.
 
-var book = {
+let book = {
 	titre: "Vingt Mille Lieues sous les mers",
 	auteur: "Jules Verne",
 	style: "Aventure",
