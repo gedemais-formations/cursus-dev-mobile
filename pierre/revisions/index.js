@@ -118,10 +118,10 @@ let velo = new Vehicule("Decathlon");
 let bus = new Vehicule("Bus Man");
 /// dans bus il y a un objet qui est une 'instance' de Vehicule
 let ratp_bus_ligne156 = [
-  bus,
-  new Vehicule("Marque1"),
-  new Vehicule("Bus anglais"),
-  new Vehicule("Bus rouge"),
+  bus, // indice = 0
+  new Vehicule("Marque1"), // indice = 1
+  new Vehicule("Bus anglais"), // indice = 2
+  new Vehicule("Bus rouge"), // indice = 3
 ];
 // let truc= Vehicule(); // pas de POO car il n'y a pas l'opérateur "new"
 let un_tableau = [];
@@ -158,3 +158,27 @@ console.info("en dehors du tableau donc 'undefined'");
 console.log(tour_de_france[3]); // pas bon, en dehors du tableau donc affichage 'undefined' dans la console
 console.info("le 3eme coureur du tour de france");
 console.log(tour_de_france[2]); // pour Froome
+
+console.log(plein_de_vehicules); ////
+
+console.info("maintenant on affiche tout le contenu du tableau d'objets");
+for (let i = 0; i < plein_de_vehicules.length; i++) {
+  console.log(i, plein_de_vehicules[i].nom());
+}
+
+/*****
+for (A; B; C) {
+    //
+    // ici j'utilise l'indice de ma boucle for
+    //
+}
+
+ A : initialisation de l'indice boucle
+ let i=0;
+ 
+ B : condition de continuation : boolean 
+ i < plein_de_vehicules.length
+
+ C : incrémentation de l'indice de boucle
+ i++
+ */
