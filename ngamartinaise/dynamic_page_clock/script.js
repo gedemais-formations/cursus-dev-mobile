@@ -31,7 +31,7 @@ function Clock(heure, minute, seconde) {
         // return this.heure + "H : " + this.minute + "M : " + this.seconde + "S";
         // ou en back tiks
         //codition ternaire pour afficher 0 devant heure quand > 10
-       return ` ${this.heure<10? 0 : ""}${this.heure} H : ${this.minute<10 ? 0 :""}${this.minute } M :  ${this.seconde<10? 0: ""} ${this.seconde} S;`
+       return ` ${this.heure<10? 0 : ""}${this.heure} H : ${this.minute<10 ? 0 :""}${this.minute } M :  ${this.seconde<10? 0: ""} ${this.seconde} S`
     }
     this.display = function () {
         // recupérer l'élement qui a id hour dans le DOM
