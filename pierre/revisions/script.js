@@ -1,1 +1,1 @@
-// script.js pour calculatrice
+// script.js pour révisions
