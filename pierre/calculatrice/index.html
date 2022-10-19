@@ -4,16 +4,17 @@
 
 	<head>
 		<meta charset='utf-8'>
-		<title>JS is fun !</title>
+		<title>Calculatrice en JS !</title>
 		<link href="./style.css" rel="stylesheet">
+		<script type="text/javascript" src="calculatrice.js"></script>
 		<script type="text/javascript" src="./script.js"></script>
 	</head>
 
 	<body>
-		<h1>Calculatrice</h1>
+		<h1>Calculatrice pour nombres entiers à 1 seul chiffre</h1>
 
 		<form name="form">
-			<input type="text" id="formWrited" name="operation" value=""><br>
+			<input class="zone_saisie" type="text" name="operation" placeholder="Donnez un calcul avec des nombres à un seul chiffre" value=""><br>
 			<input type="button" name="bouton" value="Calculate" onClick=calculatrice(form)>
 			<p id="result"></p>
 		</form>
