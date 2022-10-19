@@ -29,24 +29,9 @@ function Clock(heure, minute, seconde) {
     }
 
     this.display = function(){
-        let seconde;
-        let minute;
-        let heure;
-        if(this.seconde<10){
-            seconde = "0"+this.seconde;
-        }else{
-            seconde = this.seconde;
-        }
-        if(this.minute<10){
-            minute = "0"+this.minute;
-        }else{
-            minute = this.minute;
-        }
-        if(this.heure<10){
-            heure = "0"+this.heure;
-        }else{
-            heure = this.heure;
-        }
+        let seconde = (this.seconde<10) ? "0"+this.seconde : this.seconde;
+        let minute = (this.minute<10) ? "0"+this.minute : this.minute;
+        let heure = (this.heure<10) ? "0"+this.heure : this.heure;
         let hour = document.getElementById('hour');
         hour.textContent= heure +":"+minute+":"+seconde;
     }
