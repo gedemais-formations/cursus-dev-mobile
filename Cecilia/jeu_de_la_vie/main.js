@@ -50,7 +50,7 @@ function generate_matrix() {
     for(let x = 0; x < width; x++){
         array.push([]);
         for(let y=0; y < height; y++){
-            array[x].push((getRandomInt(100)  < filling_rate ? true : false));
+            array[x].push((getRandomInt(100) < filling_rate));// genere un nb aleatoire entre  0  et 100 , si  le nb est inf a filingrate  on push true sinon on push false
         }
     }
     console.log(array);

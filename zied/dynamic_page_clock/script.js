@@ -17,41 +17,45 @@ function Clock(heure, minute, seconde)
 	this.display = function () //fonction anonyme
 
 	{
+        let string = "";
         let text = document.getElementById("hour");
-		text.innerText = this.heures.toString() + ":" + this.minutes.toString() + ":" + this.secondes.toString();
+		
+        
+        //this.heures.toString() + ":" + this.minutes.toString() + ":" + this.secondes.toString();
 	
-    /* string += (this.heure < 10 ? "0" : "")  + this.heure + ":";
-       string += (this.minute < 10 ? "0" : "") + this.minute + ":";
-       string += (this.seconde <10 ? "0" : "") + this.seconde ;
+       string += (this.heures < 10 ? "0" : "")  + this.heures + ":";
+       string += (this.minutes < 10 ? "0" : "") + this.minutes + ":";
+       string += (this.secondes <10 ? "0" : "") + this.secondes ;
    
-   */
+       text.innerText = string ;
+     console.log(this.secondes);
     }
      
     
     this.tick = function()
 
     {
-       this.seconde ++;
-       if(this.seconde == 60)
+       this.secondes ++;
+       if(this.secondes == 60)
        {
-        this.seconde = 00;
-        this.minute ++;
+        this.secondes = 00;
+        this.minutes ++;
        }
-         if(this.minute == 60)
+         if(this.minutes == 60)
          {
-            this.minute = 00;
-            this.heure ++;
+            this.minutes = 00;
+            this.heures ++;
          }
-           if(this.heure== 24)
+           if(this.heures== 24)
            {
-            this.heure = 00
+            this.heures = 00
            }
         
     this.display();
     }
     
 }    
-let clock = new Clock(23, 50, 58);
+let clock = new Clock(09, 09, 05);
 
 setInterval(async function tick()
 {
