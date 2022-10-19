@@ -22,9 +22,9 @@ function affiche() {
     }
 }
 
-
-
 affiche();
+
+
 
 let name;
 

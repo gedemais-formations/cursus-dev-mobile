@@ -18,7 +18,7 @@ function stylo(array){
     }
 
 ;}
-*
+
 console.log(stylo(array));
 
 
