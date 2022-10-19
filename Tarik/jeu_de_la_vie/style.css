@@ -1,18 +1,13 @@
-body {
-    background-color: #e0e0e0;
-}
-
-h1 {
-    text-align: center;
-}
-
-canvas {
-    border : 1px solid black;
+body
+{
+  background-color: grey;
+  text-align: center;
 }
 
 .btn {
-    background-color: gainsboro;
-    margin: 50px;
-    display: flex;
-    justify-content: space-around;
+  margin: 25px;
+}
+
+#zone {
+  border: 1px black solid;
 }
