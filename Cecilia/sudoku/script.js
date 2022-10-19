@@ -14,13 +14,14 @@ function sudokuFacile(a) {
         ['','','','','7','','2','','6'],
         ['','','','8','','','3','4','9'],
         ['5','4','','','','','','',''],
-    ]
+    ];
     return a;
 }
 
 let arr = sudokuFacile(a);
+//let init = true;
 
-function afficheGrille(arr) {
+function afficheGrille(arr, init) {
     let grille = document.getElementById('sudoku');
     for (let i = 0; i < n; i++) {
         let ligne  = document.createElement('tr');
@@ -41,7 +42,7 @@ function afficheGrille(arr) {
                 cell.setAttribute('style','border-top:4px solid black; border-left:4px solid black;');
             }
 
-            if(val != ""){
+            if(val != "" && init){
                 cell.style.backgroundColor = 'grey';
                 cell.style.color = 'white';
             }
@@ -57,10 +58,10 @@ function verifLigne(arr, x, n) {
     for (let i=0; i< arr.length; i++){
         val = arr[x][i] //arr[ligne][colone]
         if (n == val){
-            return false;
+            return false; // Renvoie false si valeur deja présente dans la ligne
         }
     }
-    return true;
+    return true; // Renvoie true si valeur non présente dans la ligne
 }
 
 function verifColone(arr, y, n) {
@@ -68,17 +69,43 @@ function verifColone(arr, y, n) {
     for (let i=0; i< arr.length; i++){
         val = arr[i][y] //arr[ligne][colone]
         if (n == val){
-            return false;
+            return false; // Renvoie false si valeur deja présente dans la colone
         }
     }
-    return true;
+    return true; // Renvoie true si valeur non présente dans la  colone
 }
 
+function verifCarre(arr, x, y, n) {
+    // if(0 <= y <= 2){
+    //     for(let i= 0; i <= 2; i++){
+    //         if (0 <= x <= 2){
+    //             for(let j = 0; j <=)
+    //         }
+    //     }
+    // }
+}
 
-afficheGrille(arr);
+afficheGrille(arr, true);
 
-verifLigne(arr, 0);
-
-
+console.log(verifColone(arr, 0, 1));
 
 
+// Test
+
+console.log(arr);
+
+let min = 0
+let max = 2;
+let tab =[];
+let count = 0;
+let tmp;
+
+for(let i = min; i<= max; i++){
+    for (let j = min; j <= max; j++) {
+        tmp = arr[i][j];
+         tab.push(tmp);
+         count++;
+    }
+}
+
+console.log(tab);
