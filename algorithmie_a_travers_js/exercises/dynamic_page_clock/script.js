@@ -12,6 +12,7 @@ clock = new Clock(0, 0, 0);
 
 setInterval(async function tick()
 {
+    
 }, 1000);
 /* setInterval est là pour permettre à la fonction tick() de s'executer toutes les 1000ms
 apres sa premiere execution (dans l'en-tete html par exemple). Vous pouvez modifier le

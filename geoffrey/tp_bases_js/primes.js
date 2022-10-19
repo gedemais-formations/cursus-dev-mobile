@@ -19,7 +19,6 @@ function isPremier_downup(n)
     return true;
 }
 
-
 function premier ()
 {
     for (let i = 1; i <= 100; i++)
