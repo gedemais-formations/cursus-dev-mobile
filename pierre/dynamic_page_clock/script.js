@@ -8,11 +8,39 @@
     seconde, avec le formatage de votre choix.
 */
 
-clock = new Clock(0, 0, 0);
+function Clock(heure, minute, seconde) {
+  this.heure = heure;
+  this.minute = minute;
+  this.seconde = seconde;
+  //
+  this.tick = function () {
+    this.seconde++;
+    if (this.seconde >= 60) {
+      this.seconde = 0;
+      this.minute++;
+      if (this.minute >= 60) {
+        this.minute = 0;
+        this.heure++;
+        if (this.heure >= 24) {
+          this.heure = 0;
+        }
+      }
+    }
+    console.log(this.heure, this.minute, this.seconde);
+  };
+}
 
+let clock = new Clock(4, 59, 57);
+for (let i = 0; i < 10; i++) {
+  clock.tick();
+}
+
+/*
 setInterval(async function tick()
 {
+    
 }, 1000);
+*/
 /* setInterval est là pour permettre à la fonction tick() de s'executer toutes les 1000ms
 apres sa premiere execution (dans l'en-tete html par exemple). Vous pouvez modifier le
 délai de 1000ms pour faire vos tests.*/
