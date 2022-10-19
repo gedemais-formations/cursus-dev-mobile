@@ -11,15 +11,21 @@
 
 function Clock(heure, minute, seconde) 
 {
-	this.heure = heure;
-	this.minute = minute;
-	this.seconde = seconde;
-	this.display = function ()
+	this.heures = heure;
+	this.minutes = minute;
+	this.secondes = seconde;
+	this.display = function () //fonction anonyme
 
 	{
         let text = document.getElementById("hour");
-		text.innerText = this.heure.toString() + ":" + this.minute.toString() + ":" + this.seconde.toString();
-	}
+		text.innerText = this.heures.toString() + ":" + this.minutes.toString() + ":" + this.secondes.toString();
+	
+    /* string += (this.heure < 10 ? "0" : "")  + this.heure + ":";
+       string += (this.minute < 10 ? "0" : "") + this.minute + ":";
+       string += (this.seconde <10 ? "0" : "") + this.seconde ;
+   
+   */
+    }
      
     
     this.tick = function()
