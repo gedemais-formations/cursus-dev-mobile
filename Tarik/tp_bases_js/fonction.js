@@ -9,16 +9,12 @@ let entier = 189;
 let chaine = "Hello World !";
 let booleen = true;
 let flottant = 42.42;
-let array = [189, "Hello World !", true, 42.42];
+let array = [entier, chaine, booleen, flottant];
 
-function exo2 (n1, n2, n3, n4, n5) {
-    console.log(n1);
-    console.log(n2);
-    console.log(n3);
-    console.log(n4);
-    console.log(n5);
-
-    return 0;
+function exo2() {
+    for (let i = 0; i < array.length; i++) {
+        console.log(array[i]);
+    }
 }
 
-exo2(entier, chaine, booleen, flottant, array);
+exo2();

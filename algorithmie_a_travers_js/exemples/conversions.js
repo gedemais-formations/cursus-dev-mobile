@@ -18,7 +18,7 @@ console.log('--------------------------------');
 
 // Integer -> String; Integer.toString(); Accepte plusieurs types en entree. Renvoie une chaine de caracteres issue de la transformation du parametre.
 console.log(nombreEntier.toString());
-
+console.log(nombreAVirgule.toString());
 /* Integer -> Floating point number; toFixed passe un nombre entier en decimal, sous la forme d'une chaine
  * de caracteres. Son seul parametre est la precision (nombre de chiffres apres la virgule). Apres une conversion
  * de String a Float (vue plus haut), on obtient le float en question. */

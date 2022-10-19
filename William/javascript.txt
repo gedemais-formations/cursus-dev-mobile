@@ -1,0 +1,20 @@
+java script
+
+créer une variable 
+let ou var suivi de espace et =
+
+for créer une boucle
+
+3 facons de déclarer une variable (stocker une donnée)
+let :utilisable uniquement dans le scope
+var: utilisable en dehors du scope
+const: déclarer une vairable immuable
+
+type de variables: 
+string: chaine de caractere: "bonjour"
+number: int: 23
+        float: 23.23
+boolean: true or false
+
+
+

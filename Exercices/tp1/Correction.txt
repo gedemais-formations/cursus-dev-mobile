@@ -1,0 +1,51 @@
+Exercice 1
+
+1 ls
+2 ls -l
+3 ls -a
+4 ls --color -r
+5 ls -l -a -t
+6 ls -l -a -r
+
+Exercice 2
+
+Back to home ou back to ~
+
+Exercice3
+
+touch [fichiers]
+
+Exercice 4
+
+mkdir year
+
+mv annee1.txt Annee2.txt annee4.txt annee45.txt annee41.txt annee510.txt Year/
+
+Exercice 5
+
+1 mkdir -p system/tp1
+2 failed to remove
+3 rm -ri system  =>mkdir -p system/tp1 system/tp2
+
+/users/username/test/tp1
+4 mv system test
+
+5: 
+1 cd /bin ; cp chmod ~ /test/tp1
+2 cd ~/test/tp1; cp //chmod ./
+3 cd
+  cp ../../bin/chmod ~/test/tp1
+4 cp../../bin/chmod test/tp1
+
+~ chemin asbolu
+
+
+; => fin d'une instruction
+
+si dossier
+/ year/
+
+cd /bin
+
+dossier courant cd ./
+dossier parent cd../

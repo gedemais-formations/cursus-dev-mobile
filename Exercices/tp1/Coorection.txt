@@ -1,0 +1,24 @@
+Exercice 1
+
+1 ls
+2 ls -l
+3 ls -a
+4 ls --color -r
+5 ls -l -a -t
+6 ls -l -a -r
+
+Exercice 2
+
+Back to home ou back to ~
+
+Exercice3
+
+touch [fichiers]
+
+Exercice 4
+
+mkdir year
+
+Exercice 5
+
+mv annee1.txt Annee2.txt annee4.txt annee45.txt annee41.txt annee510.txt Year/
