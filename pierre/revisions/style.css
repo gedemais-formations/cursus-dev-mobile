@@ -1,0 +1,10 @@
+body {
+  background-color: #111;
+  color: #EEE;
+}
+
+.zone_saisie {
+  width: 150px;
+  background-color: rgb(214, 14, 14);
+  color: rgb(238, 238, 238);
+}

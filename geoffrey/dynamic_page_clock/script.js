@@ -8,43 +8,51 @@
     seconde, avec le formatage de votre choix.
 */
 
-function Clock(heure, minute, seconde) {
+function Clock(heure, minute, seconde)
+{
     this.heure = heure;
     this.minute = minute;
     this.seconde = seconde;
-    this.tick = function()
+
+    this.tick = function ()
     {
-        this.seconde ++;
-        if(this.seconde == 60){
-            this.seconde =0;
-            this.minute ++;
-            if(this.minute == 60){
-                this.minute = 0;
-                this.heure ++;
-                if (this.heure == 24) {
-                    this.heure = 0;                    
-                }
-            }
+        this.seconde++;
+        if (this.seconde == 60)
+        {
+            this.seconde = 0;
+            this.minute++;
         }
+        if (this.minute == 60)
+        {
+            this.heure++;
+            this.minute = 0;
+        }
+        if (this.heure == 24)
+            this.heure = 0;
     }
 
-    this.display = function(){
-        let seconde = (this.seconde<10) ? "0"+this.seconde : this.seconde;
-        let minute = (this.minute<10) ? "0"+this.minute : this.minute;
-        let heure = (this.heure<10) ? "0"+this.heure : this.heure;
-        let hour = document.getElementById('hour');
-        hour.textContent= heure +":"+minute+":"+seconde;
+    this.display = function ()
+    {
+        let string = "";
+
+        string += (this.heure < 10 ? "0" : "") + this.heure + " : ";
+        string += (this.minute < 10 ? "0" : "") + this.minute + " : ";
+        string += (this.seconde < 10 ? "0" : "") + this.seconde;
+
+        const p = document.getElementById("hour");
+        p.innerText = string;
     }
 }
 
-clock = new Clock(0, 0, 0);
-clock.display();
+clock = new Clock(9, 0, 0);
 
 setInterval(async function tick()
 {
-    clock.display();
+    // code
     clock.tick();
-}, 10);
+    clock.display();
+}, 5);
+
 /* setInterval est là pour permettre à la fonction tick() de s'executer toutes les 1000ms
 apres sa premiere execution (dans l'en-tete html par exemple). Vous pouvez modifier le
 délai de 1000ms pour faire vos tests.*/

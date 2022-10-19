@@ -25,7 +25,7 @@ Ou bien via d'autres parties de la page afin d'accélérer la requete :
 let element = document.footer.getElementById("id_string");
 */ 
 
- let text = document.getElementById("text");
+const text = document.getElementById("text");
 
  /* On peut maintenant se permettre de modifier le contenu de la balise <p>.
 L'attribut innerText contient le texte présent dans la balise, et JavaScript

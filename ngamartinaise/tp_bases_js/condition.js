@@ -23,7 +23,7 @@ affichagenombre();
 //entier ici represente le chiffre que je dois diviser et i  est le diviseur
 function nombrespremier(entier) {
     for (let i = 2; i < entier; i++) {
-        // si on obtient O en résultat cela veut dire  que  ce n'est pas  un nombre premeir
+        // si on obtient O en résultat cela veut dire  que  ce n'est pas  un nombre premeir on enlève 1 car il est divisible par tout nombre.
         if (entier % i === 0) {
             return false;
         }

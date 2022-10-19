@@ -7,42 +7,45 @@
     l'heure sous forme lisible dans le paragraphe contenant l'id "hour" à chaque
     seconde, avec le formatage de votre choix.
 */
-function Clock(h, min, sec) {
-  (this.heures = h),
-    (this.minutes = min),
-    (this.secondes = sec),
-    (this.tick = () => {
-      this.secondes++;
-      if (this.secondes == 60) {
-        this.secondes = 0;
-        this.minutes++;
-      }
-      if (this.minutes == 60) {
-        this.minutes = 0;
-        this.heures++;
-      }
-      if (this.heures == 24) {
-        this.heures = 0;
-      }
-    }),
-    (this.display = () => {
-      let newHeures = this.heures < 10 ? "0" + this.heures : this.heures;
-      let newMinutes = this.minutes < 10 ? "0" + this.minutes : this.minutes;
-      let newSecondes =
-        this.secondes < 10 ? "0" + this.secondes : this.secondes;
 
-      document.getElementById(
-        "hour"
-      ).innerHTML = ` ${newHeures} : ${newMinutes} : ${newSecondes}`;
-    });
+function Clock(heure, minute, seconde) {
+  this.heure = heure;
+  this.minute = minute;
+  this.seconde = seconde;
+
+  this.tick = function () {
+    this.seconde++;
+    if (this.seconde == 60) {
+      this.seconde = 0;
+      this.minute++;
+    }
+    if (this.minute == 60) {
+      this.heure++;
+      this.minute = 0;
+    }
+    if (this.heure == 24) this.heure = 0;
+  };
+
+  this.display = function () {
+    let string = "";
+
+    string += (this.heure < 10 ? "0" : "") + this.heure + " : ";
+    string += (this.minute < 10 ? "0" : "") + this.minute + " : ";
+    string += (this.seconde < 10 ? "0" : "") + this.seconde;
+
+    const p = document.getElementById("hour");
+    p.innerText = string;
+  };
 }
 
-let clock = new Clock(9, 50, 0);
+clock = new Clock(0, 0, 0);
 
 setInterval(async function tick() {
+  // code
   clock.tick();
   clock.display();
-}, 1);
+}, 1000);
+
 /* setInterval est là pour permettre à la fonction tick() de s'executer toutes les 1000ms
 apres sa premiere execution (dans l'en-tete html par exemple). Vous pouvez modifier le
 délai de 1000ms pour faire vos tests.*/
