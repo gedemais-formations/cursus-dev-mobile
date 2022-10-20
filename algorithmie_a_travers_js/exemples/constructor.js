@@ -43,10 +43,6 @@ lib.add_book("Vingt Mille Lieux Sous Les Mers", "Jules Verne", "Aventure", 672, 
 let book = new Book("Vingt Mille Lieux Sous Les Mers", "Jules Verne", "Aventure", 672, 4.99);
 
 console.log(lib.books);
-
-let book = new Book("Vingt Mille Lieux Sous Les Mers", "Jules Verne", "Aventure", 672, 4.99);
-
-book.display_title(false);
 //var books = []
 
 //books.push(new Book(title))
