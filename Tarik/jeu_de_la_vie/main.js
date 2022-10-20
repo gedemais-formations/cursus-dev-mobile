@@ -1,18 +1,25 @@
 const aliveColor = "black";
 const deadColor = "white";
 
-
 const cellSize = 10;
-const widthCanvas = 100;
-const heightCanvas = 70;
+const widthCanvas = 10;
+const heightCanvas = 7;
 const pxWidth = widthCanvas * cellSize;
 const pxHeight = heightCanvas * cellSize;
+
+const arrayCanvas = [];
+const fillingRate = 20;
+
+//génére un % aléatoire
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
 
 //Définir le canvas
 const canvas = document.getElementById("zone");
 let ctx = canvas.getContext('2d');
 
-
+// defini le cadrillage 
 function drawBackground() {
     canvas.width = pxWidth;
     canvas.height = pxHeight;
@@ -30,10 +37,21 @@ function drawBackground() {
         ctx.moveTo(0, i);
         ctx.lineTo(pxWidth, i);
     }
-
     ctx.stroke();
 }
 
+// genére le tableau des colonnes de cellules true/false
+function generateMatrix() {
+    for (let i = 0; i < widthCanvas; i ++) {
+        arrayCanvas.push([]);
+        for (let j = 0; j < heightCanvas; j ++) {
+            arrayCanvas[i].push(getRandomInt(100) < fillingRate)
+        }
+    }
+}
+generateMatrix()
+
+console.log(arrayCanvas);
 
 setInterval(async function tick() {
     drawBackground();
