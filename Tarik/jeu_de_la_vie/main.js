@@ -111,13 +111,21 @@ function propagePixel(){
 drawBackground();
 
 //Time
+let cycleTime = 100;
+function changeTime() {
+    let newTime = document.getElementById("timerNumber");
+    cycleTime = parseInt(newTime.value);
+    startPause()
+};
+
 let initialCycle = 0;
 let initialTime = 0;
-function setTimer() {
+function setTimer(timeAdded) {
     let timer = document.getElementById("timer");
-    initialTime += 0.1;
+    
+    initialTime += timeAdded;
     initialCycle++;
-    timer.innerHTML = ` ${initialTime.toFixed(2)} sec | ${initialCycle} cycle`;
+    timer.innerHTML = ` ${initialTime.toFixed(2)/1000} sec | ${initialCycle} cycle`;
 };
 
 //Change de couleur
@@ -145,11 +153,11 @@ function startPause() {
     let btn = document.getElementById("startPause");
     if (btnStatus == true) {
         interval = setInterval(async function tick() {
-            setTimer()
+            setTimer(cycleTime)
             propagePixel();
             drawBackground();
             setPixel(arrayCanvas);
-        },100);
+        },cycleTime);
         btn.innerHTML = "Pause";
         btnStatus = false;
     } else if(btnStatus == false) {
