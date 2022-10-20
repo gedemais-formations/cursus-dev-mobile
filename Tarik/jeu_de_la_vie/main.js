@@ -23,7 +23,6 @@ let ctx = canvas.getContext('2d');
 function drawBackground() {
     canvas.width = pxWidth;
     canvas.height = pxHeight;
-    console.log(`height : ${pxHeight} , width: ${pxWidth}`);
 
     ctx.fillStyle = deadColor;
     ctx.fillRect(0, 0, pxWidth, pxHeight);
@@ -116,15 +115,26 @@ function randomStart() {
     generateMatrix()
     drawBackground()
     setPixel(arrayCanvas)
-}
+};
 
 //Button Start
-function start() {
-    setInterval(async function tick() {
-        propagePixel();
-        drawBackground()
-        setPixel(arrayCanvas);
-    },100);
+let btnStatus = true;
+let interval = null;
+function startPause() {
+    let btn = document.getElementById("startPause");
+    if (btnStatus == true) {
+        interval = setInterval(async function tick() {
+            propagePixel();
+            drawBackground();
+            setPixel(arrayCanvas);
+        },100);
+        btn.innerHTML = "Pause";
+        btnStatus = false;
+    } else if(btnStatus == false) {
+        clearInterval(interval);
+        btn.innerHTML= "Start";
+        btnStatus = true;
+    }
 }
 /* setInterval est la pour permettre au script de s'executer toutes les 1000ms
 apres sa premiere execution (dans l'en-tete html par exemple).*/
