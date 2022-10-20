@@ -6,10 +6,15 @@ body
 
 .btn {
   margin: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 button {
   padding: 10px;
+  margin: 10px;
   border-radius: 10px;
   border: none;
   background-color: white;
@@ -20,6 +25,15 @@ button:hover {
   background-color: rgb(122, 122, 196);
   color: white;
   transform: scale(1.05);
+}
+
+.color {
+  display: flex;
+  align-items: center;
+}
+
+input {
+  margin: 10px;
 }
 
 #zone {

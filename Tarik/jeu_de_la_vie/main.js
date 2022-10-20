@@ -1,5 +1,5 @@
-const aliveColor = "black";
-const deadColor = "white";
+let aliveColor = "black";
+let deadColor = "white";
 
 const cellSize = 10;
 const widthCanvas = 100;
@@ -81,6 +81,8 @@ function checkVoisin(index, index2, array) {
     return positifPixel;
 }
 
+
+// Creer un nouveau tableau apres transformation et calque le premier dessus
 function propagePixel(){
     let newArrayCanvas = [];
     for (let i = 0; i < arrayCanvas.length; i++) {
@@ -106,8 +108,17 @@ function propagePixel(){
 
     arrayCanvas = newArrayCanvas;
 }
-
 drawBackground();
+
+//Change de couleur
+function colorChange() {
+    let btnDeadColor = document.getElementById("colorDead");
+    let btnAliveColor = document.getElementById("colorAlive");
+
+    console.log(btnDeadColor.value);
+    deadColor = btnDeadColor.value;
+    aliveColor = btnAliveColor.value;
+}
 
 //Button random Start
 function randomStart() {

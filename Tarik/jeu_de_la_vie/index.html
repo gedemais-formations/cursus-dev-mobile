@@ -16,6 +16,13 @@
 		<div class="btn">
 			<button id="startPause" onclick="startPause()">Start</button>
 			<button onclick="randomStart()">Random Start</button>
+			<div class="color">
+				<p>Dead : </p>
+				<input type="color" onchange="colorChange()" name="colorDead" id="colorDead" value="#FFFFFF">
+				<p>Alive : </p>
+				<input type="color" onchange="colorChange()" id="colorAlive" value="#000000">
+
+			</div>
 		</div>
 		
 		<canvas id="zone"></canvas>
