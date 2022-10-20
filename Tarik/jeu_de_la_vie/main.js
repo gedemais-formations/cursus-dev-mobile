@@ -110,6 +110,16 @@ function propagePixel(){
 }
 drawBackground();
 
+//Time
+let initialCycle = 0;
+let initialTime = 0;
+function setTimer() {
+    let timer = document.getElementById("timer");
+    initialTime += 0.1;
+    initialCycle++;
+    timer.innerHTML = ` ${initialTime.toFixed(2)} sec | ${initialCycle} cycle`;
+};
+
 //Change de couleur
 function colorChange() {
     let btnDeadColor = document.getElementById("colorDead");
@@ -118,7 +128,7 @@ function colorChange() {
     console.log(btnDeadColor.value);
     deadColor = btnDeadColor.value;
     aliveColor = btnAliveColor.value;
-}
+};
 
 //Button random Start
 function randomStart() {
@@ -135,6 +145,7 @@ function startPause() {
     let btn = document.getElementById("startPause");
     if (btnStatus == true) {
         interval = setInterval(async function tick() {
+            setTimer()
             propagePixel();
             drawBackground();
             setPixel(arrayCanvas);
@@ -146,9 +157,4 @@ function startPause() {
         btn.innerHTML= "Start";
         btnStatus = true;
     }
-}
-/* setInterval est la pour permettre au script de s'executer toutes les 1000ms
-apres sa premiere execution (dans l'en-tete html par exemple).*/
-setInterval(async function tick() {
-
-}, 10000);
+};
