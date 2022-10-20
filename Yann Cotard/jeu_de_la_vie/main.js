@@ -22,6 +22,7 @@ const board_canvas = document.getElementById("board");
 //définition du context dans le canvas
 const board = board_canvas.getContext("2d");
 
+
 //déclaraton du tableau qui stockera nos données
 let array = [];//Model Data Structure
 
@@ -45,10 +46,65 @@ function updateView(){
    
     }
   }
+};
 
+/* count_neighbours
+Compte le nombre de voisins vivants d'une cellule.
+*/
+function count_neighbours(x, y)
+{
+    let result = 0;
+//  console.log(x-1, y-1);
+   
+      if(x>0 && y>0 && array[x-1][y-1]==true){
+        result++
+      }
+      if(x>0 && y>0 && array[x][y-1]==true){
+        result++
+      }
+      if(x>0 && y>0 && array[x+1][y-1]==true){
+        result++
+      }
+      if(x>0 && y>0 && array[x-1][y]==true){
+        result++
+      }
+      if(x>0 && y>0 && array[x+1][y]==true){
+        result++
+      }
+      if(x>0 && y>0 && array[x-1][y+1]==true){
+        result++
+      }
+      if(x>0 && y>0 && array[x][y+1]==true){
+        result++
+      }
+      if(x>0 && y>0 && array[x+1][y+1]==true){
+        result++
+      }
+    
+
+
+  return result;
+    
 }
+// count_neighbours()
 
 
+/* update_model
+Itere sur array pour appliquer les regles du jeu de la vie sur chacune des cellules du board.
+(Creer la fonction count_neighbours pour compter les voisins d'une cellule)
+Si une cellule vivante a moins de 2 voisins, elle meure de solitude
+Si une cellule vivante a plus de 3 voisins, elle meure de surpopulation
+Si une cellule morte a 3 voisins, elle devient vivante
+Si une cellule a 2 voisins, elle conserve son etat actuel*/
+
+function update_model()
+{
+  for(let x=0; x<width; x++){
+    for(let y=0; y<height; y++){
+      console.log(count_neighbours(x, y));
+    }
+  }
+}
 
 function draw_background() {
   board_canvas.width = px_width; //largeur en pixel du canvas
@@ -74,6 +130,7 @@ function draw_background() {
   }
 
   board.stroke(); //affiche le resultat à l'écran
+}
 
 //fonction pour générer le tableau qui contiendra toutes les coordonnées des cellules
   function generate_matrix(){
@@ -95,16 +152,14 @@ function draw_background() {
     }
     console.log(array);
   }
-  generate_matrix();
 
-  updateView();
-}
+
+generate_matrix();
 draw_background();
-console.log(updateView());
-
+updateView();
+update_model();
 
 setInterval(async function tick() {
- 
 }, 1000);
 
 // setInterval est la pour permettre au script de s'executer toutes les 1000ms
