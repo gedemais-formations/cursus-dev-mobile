@@ -59,22 +59,22 @@ function count_neighbours(x, y)
       if(x>0 && y>0 && array[x-1][y-1]==true){
         result++
       }
-      if(x>0 && y>0 && array[x][y-1]==true){
+      if(y>0 && array[x][y-1]==true){
         result++
       }
       if(x>0 && y>0 && array[x+1][y-1]==true){
         result++
       }
-      if(x>0 && y>0 && array[x-1][y]==true){
+      if(x>0 && array[x-1][y]==true){
         result++
       }
-      if(x>0 && y>0 && array[x+1][y]==true){
+      if(x>0 && array[x+1][y]==true){
         result++
       }
       if(x>0 && y>0 && array[x-1][y+1]==true){
         result++
       }
-      if(x>0 && y>0 && array[x][y+1]==true){
+      if(y>0 && array[x][y+1]==true){
         result++
       }
       if(x>0 && y>0 && array[x+1][y+1]==true){
