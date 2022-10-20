@@ -68,7 +68,7 @@ let clockYann = new Clock(23, 59, 55);
 setInterval(async function tick()
 {
     clockYann.add_tick();
-   clockYann.add_display();
+    clockYann.add_display();
   
 }, 1000);
 

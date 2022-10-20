@@ -45,7 +45,7 @@ console.log(book.locataires);
 /* Notre objet book existe. Pour acceder a ses proprietes, on peut ecrire :
  * book.nomDeLaVariable
  * ou bien :
- * book['nomDeLaVariable'], ce qui permet d'acceder a une valeur dans book grace
+ * book['nomDeLaVariable'], ce qui permet d'acceder a une valeur dans book gracecd
  * a son nom sous forme de String dans une variable entre crochets, et pas forcement
  * par un nom inscrit en dur (non modifiable pendant l'execution) dans le code.*/
 
