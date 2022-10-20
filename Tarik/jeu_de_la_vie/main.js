@@ -2,12 +2,12 @@ const aliveColor = "black";
 const deadColor = "white";
 
 const cellSize = 10;
-const widthCanvas = 10;
-const heightCanvas = 7;
+const widthCanvas = 100;
+const heightCanvas = 70;
 const pxWidth = widthCanvas * cellSize;
 const pxHeight = heightCanvas * cellSize;
 
-const arrayCanvas = [];
+let arrayCanvas = [];
 const fillingRate = 20;
 
 //génére un % aléatoire
@@ -49,12 +49,85 @@ function generateMatrix() {
         }
     }
 }
-generateMatrix()
 
-console.log(arrayCanvas);
+// Génére tout les pixels true 
+function setPixel(array) {
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j <array[i].length; j++) {
+            if (array[i][j] == true) {
+                ctx.fillStyle= aliveColor;
+                ctx.fillRect(i*cellSize,j*cellSize,cellSize,cellSize);
+            }
+        }
+    }
+};
 
-setInterval(async function tick() {
-    drawBackground();
-}, 1000);
+//check les valeur des voisin et retourne la somme des voisin en vie
+function checkVoisin(index, index2, array) {
+    let positifPixel = 0;
+    for (let x = -1 ; x < 2; x++ ) {
+        if(array[index-1] != undefined && array[index-1][index2+x] != undefined &&
+             array[index-1][index2+x] === true) {
+            positifPixel++;
+        }
+        if(array[index] != undefined && array[index][index2+x] != undefined &&
+            array[index][index2+x] === true) {
+            positifPixel++;
+        }
+        if(array[index+1] != undefined && array[index+1][index2+x] != undefined &&
+            array[index+1][index2+x] === true) {
+            positifPixel++;
+        }
+    }
+    return positifPixel;
+}
+
+function propagePixel(){
+    let newArrayCanvas = [];
+    for (let i = 0; i < arrayCanvas.length; i++) {
+        newArrayCanvas.push([]);
+        for (let j = 0; j <arrayCanvas[i].length; j++) {
+            let positifPixel = checkVoisin(i, j, arrayCanvas);
+            if (arrayCanvas[i][j] == true) {
+                positifPixel--
+                if (positifPixel < 2 || positifPixel > 3) {
+                    newArrayCanvas[i].push(false);
+                } else {
+                    newArrayCanvas[i].push(true);
+                }
+            } else if(arrayCanvas[i][j] == false) {
+                if (positifPixel < 3 || positifPixel > 3) {
+                    newArrayCanvas[i].push(false);
+                } else {
+                    newArrayCanvas[i].push(true);
+                }
+            }
+        }
+    }
+
+    arrayCanvas = newArrayCanvas;
+}
+
+drawBackground();
+
+//Button random Start
+function randomStart() {
+    arrayCanvas.length = 0;
+    generateMatrix()
+    drawBackground()
+    setPixel(arrayCanvas)
+}
+
+//Button Start
+function start() {
+    setInterval(async function tick() {
+        propagePixel();
+        drawBackground()
+        setPixel(arrayCanvas);
+    },100);
+}
 /* setInterval est la pour permettre au script de s'executer toutes les 1000ms
 apres sa premiere execution (dans l'en-tete html par exemple).*/
+setInterval(async function tick() {
+
+}, 10000);

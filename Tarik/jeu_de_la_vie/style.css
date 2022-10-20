@@ -1,11 +1,25 @@
 body
 {
-  background-color: grey;
+  background-color: rgb(209, 209, 209);
   text-align: center;
 }
 
 .btn {
   margin: 25px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+  transition: .2s ease-in-out 0s;
+}
+button:hover {
+  cursor: pointer;
+  background-color: rgb(122, 122, 196);
+  color: white;
+  transform: scale(1.05);
 }
 
 #zone {
