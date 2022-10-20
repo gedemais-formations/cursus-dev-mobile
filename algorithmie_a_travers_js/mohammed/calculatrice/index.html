@@ -10,15 +10,13 @@
 	</head>
 
 	<body>
-		<p>Essayez de remplir le formulaire :</p>
+		<h1>Calculatrice</h1>
 
-		<form name="formulaire">
-			<input type="text" name="input" value=""><br>
-			<input type="button" name="boutonFormulaire" value="Submit" onClick=writeInput(formulaire)>
+		<form name="form">
+			<input type="text" name="operation" value=""><br>
+			<input type="button" name="bouton" value="Calculate" onClick=calculatrice(form)>
+			<p id="result"></p>
 		</form>
 
-		<p id="texte"></p>
-
 	</body>
-
 </html>

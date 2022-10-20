@@ -30,6 +30,26 @@ function getRandomInt(max)
   return Math.floor(Math.random() * max)
 };
 
+/*updateView()
+itérer sur array, et dessiner les pixels représentant les cellules vivantes
+board.fillRect(x_start, y_start, rect_Width, rect_Height);*/
+
+function updateView(){
+  board.fillStyle=alive_color;
+  for(let x = 0; x<width; x++){
+    for(let y =0; y<height; y++){
+ 
+      if(array[x][y]){
+        board.fillRect(x*cell_size, y*cell_size, cell_size, cell_size);
+      }
+   
+    }
+  }
+
+}
+
+
+
 function draw_background() {
   board_canvas.width = px_width; //largeur en pixel du canvas
   board_canvas.height = px_height; //hauteur en pixel du canvas
@@ -77,8 +97,11 @@ function draw_background() {
   }
   generate_matrix();
 
+  updateView();
 }
 draw_background();
+console.log(updateView());
+
 
 setInterval(async function tick() {
  
