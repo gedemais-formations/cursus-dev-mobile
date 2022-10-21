@@ -3,11 +3,11 @@ const alive_color = "black";
 const dead_color = "white";
 
 //définition taille cellule (en px)
-const cell_size = 8;
+const cell_size = 20;
 
 //définition largeur et hauteur du canvas (en nombre de cellule)
-const width = 100;
-const height = 100;
+const width = 3;
+const height = 3;
 
 //defintion du canvas en pixel
 const px_width = width * cell_size;
@@ -21,12 +21,13 @@ const board_canvas = document.getElementById("board");
 
 //définition du context dans le canvas
 const board = board_canvas.getContext("2d");
-let array=[];
+
 //déclaraton du tableau qui stockera nos données
- //Model Data Structure
- function getRandomInt(max) {
-   return Math.floor(Math.random() * max);
- }
+let array = []; //Model Data Structure
+
+// function getRandomInt(max) {
+//   return Math.floor(Math.random() * max);
+// }
 
 /*updateView()
 itérer sur array, et dessiner les pixels représentant les cellules vivantes
@@ -36,7 +37,7 @@ function updateView() {
   board.fillStyle = alive_color;
   for (let x = 0; x < width; x++) {
     for (let y = 0; y < height; y++) {
-      if(array[x][y]== true){
+      if (array[x][y] == true) {
         board.fillRect(x * cell_size, y * cell_size, cell_size, cell_size);
       }
     }
@@ -90,32 +91,31 @@ Si une cellule vivante a plus de 3 voisins, elle meure de surpopulation
 Si une cellule morte a 3 voisins, elle devient vivante
 Si une cellule a 2 voisins, elle conserve son etat actuel*/
 
+let newTab=[];
 function update_model() {
   let nb_neighbours;
-  let newTab=[];
- 
+  newTab=array;
   for (let x = 0; x < width; x++) {
-    newTab.push([])
     for (let y = 0; y < height; y++) {
       nb_neighbours = count_neighbours(x, y); //on stocke la fonction "count_neighbours(x, y)" dans une variable pour faciliter la saisie et la lecture du code
 
 
-      if (nb_neighbours == 2) {
-        newTab[x].push(array[x][y]);
-        
+      if ((array[x][y] == false && nb_neighbours == 2) || (array[x][y] == true && nb_neighbours == 2)) {
+        array[x][y];
+        newTab=array;
       }
-      if (nb_neighbours >3) {
-        newTab[x].push(false);
-       
+      if (array[x][y] == true && nb_neighbours >3) {
+        array[x][y] = false;
+        newTab=array;
       }
-      if (nb_neighbours < 2) {
-        newTab[x].push(false);
-        
+      if (array[x][y] == true && nb_neighbours < 2) {
+        array[x][y] = false;
+        newTab=array;
       }
      
-      if (nb_neighbours == 3) {
-
-          newTab[x].push(true);
+      if (array[x][y] == false && nb_neighbours == 3) {
+        array[x][y] = true;
+        newTab=array;
       }
      
 
@@ -123,8 +123,6 @@ function update_model() {
   }
   array=newTab;
 }
-//createNewTab();
-
 function draw_background() {
   board_canvas.width = px_width; //largeur en pixel du canvas
   board_canvas.height = px_height; //hauteur en pixel du canvas
@@ -150,50 +148,33 @@ function draw_background() {
   board.stroke(); //affiche le resultat à l'écran
 }
 
-function createNewTab() {
-  for (let x = 0; x < width; x++) {
-    newTab.push([]); //pour générer un tableau vide
-    
-    for (let y = 0; y < height; y++) {
-      newTab[x].push(getRandomInt(100) < filling_rate);
-
+function generate_matrix_test() {
+    console.info("Tableau de jeuTest w=" + width + " h=" + height);
+    array = [];
+    // let etat;
+    for (let x = 0; x < width; x++) {
+      array.push([]);
+      for (let y = 0; y < height; y++) {
+        array[x].push(false);
+      }
     }
+    // Remplir le tableau avec les valeurs de test
+    array[0][0] = true;
+    array[0][1] = true;
+    array[2][1] = true;
+    array[2][2] = true;
+    //
+    console.table(array);
   }
-
-}
-
-// //fonction pour générer le tableau qui contiendra toutes les coordonnées des cellules
-function generate_matrix() {
- for (let x = 0; x < width; x++) {
-   array.push([]); //pour générer un tableau vide
-
-   for (let y = 0; y < height; y++) {
-     array[x].push(getRandomInt(100) < filling_rate);
-
-  /*
-  revient à faire la même chose que :
-  let r=getrandomInt(100);
-  if(r<fillinRate)
-  array[x].push(true);
-  else
-  array[x].push(false);
-
-  */
-   }
- }
-}
+  newTab=array;
 
 
-
-
-generate_matrix();
+generate_matrix_test();
+update_model();
 draw_background();
 updateView();
 
 setInterval(async function tick() {
-  update_model();
-  draw_background();
-  updateView();
 }, 100);
 
 // setInterval est la pour permettre au script de s'executer toutes les 1000ms
