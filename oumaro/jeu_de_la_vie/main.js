@@ -8,8 +8,9 @@ const board = board_canvas.getContext("2d");
 const alive_color = "black";
 const dead_color = "white";
 const filling_rate = 20; //poucentage de chances qu'une cellule apparaisse vivante
-const x_vertical = [0,0,1,-1,-1,1,-1,1];
-const y_horizontal = [1,-1,0,0,-1,1,1,-1];
+const x_vertical = [0, 0, 1, -1, -1, 1, -1, 1];
+const y_horizontal = [1, -1, 0, 0, -1, 1, 1, -1];
+
 
 
 let array = []; //mmodel de structure
@@ -19,85 +20,75 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
+function count_neighbours(x, y) {
+  let result = 0;
 
+  for (let i = 0; i < 8; i++) {
+    let nx = x + x_vertical[i];
+    let ny = y + y_horizontal[i];
 
-function count_neighbours(x,y){
-
-    let result = 0;
-    
-    for(let i = 0; i < 8; i++){
-        let nx = x + x_vertical[i];
-        let ny = y+ y_horizontal[i];
-
-        if (array[nx][ny]){ 
-            result++
-        }
-
+    if (nx >= 0 && nx < array.length  && ny >= 0 && ny < array.length && array[nx][ny]) {
+      result++;
     }
-    return result;
 
-} 
+ 
+  }
+  return result;
+}
 
+function update_model() {
 
+  let newArray = [];
 
-function update_model(){
-    for (let a = 0; a < array.length; a++) {
-        for (let i = 0; i < array[a].length; i++){
-           
+  for (let a = 0; a < array.length; a++) {
+    newArray.push([]);
 
+    for (let i = 0; i < array[a].length; i++) {
+      let resultat = count_neighbours(a, i);
 
-       // let resultat =  count_neighbours();
-            
-      
+      //inferieur a 2 elle meurt
+      if (resultat < 2) {
+       newArray[a].push(false);
 
+      }
 
-        if(resultat < 2){
-            board.fillStyle = dead_color;
-            board.fillRect(a * cell_size, i * cell_size, cell_size, cell_size);
-            board.stroke();
+      //égal à 3 ,elle vit (elle nait)
+      if (resultat == 3) {
+       newArray[a].push(true);
 
-        } 
         
-        if(resultat == 3){
-            board.fillStyle = alive_color;
-            board.fillRect(a * cell_size, i * cell_size, cell_size, cell_size);
-            board.stroke();
 
-        }
+      }
+
+            //supérieur a 3 , elle meurt
+
+      if (resultat > 3) {
+       newArray[a].push(false);
 
 
-        if(resultat > 3 ){
-            board.fillStyle = dead_color;
-            board.fillRect(a * cell_size, i * cell_size, cell_size, cell_size);
-            board.stroke();
-        }
-       
+      }
 
+      // egal à 2, elle reste en vie
+      if (resultat == 2) {
+        newArray[a].push(array[a][i]);
+
+      }
     }
-
-        }
-    
-    
-    }
-    
+  }
+  array = newArray;
+}
 
 
+console.log(array);
 
 
-/*
-  
-  function update() iterer sur array et de dessiner les pixels representants les calculs vivants
-  board.fillRect(x_start,y_start,x_end,y_end)
-
-  */
-
-function update() {
+function update_view() {
   for (let a = 0; a < array.length; a++) {
     for (let i = 0; i < array[a].length; i++) {
       if (array[a][i] == true) {
         (board.fillStyle = alive_color),
-         board.fillRect(a * cell_size, i * cell_size, cell_size, cell_size);
-                        //point de depart,point d'arrivée, largeur,hauteur
+          board.fillRect(a * cell_size, i * cell_size, cell_size, cell_size);
+        //point de depart,point d'arrivée, largeur,hauteur
         board.stroke();
       }
     }
@@ -105,7 +96,7 @@ function update() {
 }
 
 function draw_background() {
-  // on créer la grille avec canvas.
+  //****************************** */ on créer la grille avec canvas.*******************************************************************
 
   board_canvas.width = px_width; //largeur en pixels du canvas
   board_canvas.height = px_height; //hauteur en pixels du canvas
@@ -133,6 +124,9 @@ function draw_background() {
   board.stroke(); //affiche le resultat
 }
 
+
+
+//*********************************************************** */
 function generate_matrix() {
   for (let x = 0; x < width; x++) {
     //créer les cases vide
@@ -146,15 +140,20 @@ function generate_matrix() {
   }
 
   console.table(array);
+
 }
 
-draw_background();
+/**************************************************************** */
+
 
 generate_matrix();
-update();
 
-setInterval(async function tick() {
-   //update_model()
-}, 1000);
+
+
+let action = setInterval(async function tick() {
+  draw_background();
+  update_model();
+  update_view();
+}, 100);
 /* setInterval est la pour permettre au script de s'executer toutes les 1000ms
 apres sa premiere execution (dans l'en-tete html par exemple).*/
