@@ -2,7 +2,7 @@ const alive_color = "black";
 const dead_color = "white";
 
 const cell_size = 8;
-const width = 50;
+const width = 100;
 const height = 50;
 const px_width = width * cell_size;
 const px_height = height * cell_size;
@@ -116,8 +116,8 @@ function test(){
                 if(count_neighbours(i,j) > 3 || count_neighbours(i,j) < 2) {
                     console.log( "je suis la cellule array["+i+"]["+j+"] je suis " + array[i][j] + " et j'ai "+count_neighbours(i,j)+" voisins en vie ----");
                     new_array[i].push(false);
-                    board.fillStyle = dead_color;
-                    board.fillRect(i*cell_size,j*cell_size,cell_size,cell_size);
+                    //board.fillStyle = dead_color;
+                    //board.fillRect(i*cell_size,j*cell_size,cell_size,cell_size);
     
                 }else{
                     console.log( "je suis la cellule array["+i+"]["+j+"] je suis " + array[i][j] + " et j'ai "+count_neighbours(i,j)+" voisins en vie ");
@@ -141,8 +141,8 @@ function test(){
         }
     }
     array = new_array;
-    console.table(array);
-    update_view();
+    //console.table(array);
+    //update_view();
 }
 
 
@@ -159,6 +159,8 @@ setInterval(async function tick() {
     draw_background();
     test();
     update_view();
+
+
 }, 100);
 /* setInterval est la pour permettre au script de s'executer toutes les 1000ms
 apres sa premiere execution (dans l'en-tete html par exemple).*/
