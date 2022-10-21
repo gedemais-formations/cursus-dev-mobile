@@ -2,7 +2,7 @@ let aliveColor = "black";
 let deadColor = "white";
 
 const cellSize = 10;
-const widthCanvas = 100;
+const widthCanvas =100;
 const heightCanvas = 70;
 const pxWidth = widthCanvas * cellSize;
 const pxHeight = heightCanvas * cellSize;
@@ -121,8 +121,8 @@ function changeTime() {
 
 let initialCycle = 0;
 let initialTime = 0.00;
+let timer = document.getElementById("timer");
 function setTimer(timeAdded) {
-    let timer = document.getElementById("timer");
     
     initialTime += timeAdded/1000;
     initialCycle++;
@@ -134,7 +134,6 @@ function colorChange() {
     let btnDeadColor = document.getElementById("colorDead");
     let btnAliveColor = document.getElementById("colorAlive");
 
-    console.log(btnDeadColor.value);
     deadColor = btnDeadColor.value;
     aliveColor = btnAliveColor.value;
 };
@@ -167,3 +166,68 @@ function startPause() {
         btnStatus = true;
     }
 };
+
+//button reset 
+function reset() {
+    let resetArray = [];
+    for (let i = 0; i < widthCanvas; i ++) {
+        resetArray.push([]);
+        for (let j = 0; j < heightCanvas; j ++) {
+            resetArray[i].push(false)
+        }
+    }
+    arrayCanvas = resetArray;
+    initialCycle = 0;
+    initialTime = 0.00;
+    btnStatus = false;
+    timer.innerHTML =""
+    startPause()
+    drawBackground()
+}
+
+//cellule clickable 
+//recupérer la position de la souris par rapport au canvas
+function getCursorPosition(canvas, event) {
+    const rect = canvas.getBoundingClientRect()
+    const x = event.clientX - rect.left
+    const y = event.clientY - rect.top
+    return [10*Math.floor(x/cellSize), 10*Math.floor(y/cellSize)]
+};
+
+//génére une matrix vide de cellule
+function generateNewMatrix() {
+    if (arrayCanvas.length == widthCanvas) {
+        return arrayCanvas;
+    } else {
+        reset()
+    }
+}
+
+canvas.addEventListener('mousedown', (e) => {
+    let position = getCursorPosition(canvas, e);
+    if (position[0] != 0) {
+        position[0] = position[0]/10;
+    }
+    if (position[1] != 0) {
+        position[1] = position[1]/10;
+    }
+    generateNewMatrix();
+    let newClickArrayCanvas = [];
+    for (let i = 0; i < arrayCanvas.length; i++) {
+        newClickArrayCanvas.push([]);
+        for (let j = 0; j <arrayCanvas[i].length; j++) {
+            if (i == position[0] && j == position[1]) {
+                if (arrayCanvas[i][j] == true) {
+                    newClickArrayCanvas[i].push(false)
+                } else if(arrayCanvas[i][j] == false) {
+                    newClickArrayCanvas[i].push(true)
+                }
+            } else {
+                newClickArrayCanvas[i].push(arrayCanvas[i][j])
+            }
+        }
+    }
+    arrayCanvas = newClickArrayCanvas;
+    drawBackground()
+    setPixel(arrayCanvas)
+});
