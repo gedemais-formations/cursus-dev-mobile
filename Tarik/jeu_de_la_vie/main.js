@@ -108,7 +108,7 @@ function propagePixel(){
 
     arrayCanvas = newArrayCanvas;
 }
-drawBackground();
+
 
 //Time
 let cycleTime = 100;
@@ -259,3 +259,8 @@ function countAliveOrDead() {
     count.innerHTML = `Cellule(s) vivante(s) : ${alive} | 
         Cellule(s) morte(s) : ${dead} `
 }
+
+
+// Lancement au chargement de la page
+drawBackground();
+countAliveOrDead();
