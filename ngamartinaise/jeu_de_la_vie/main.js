@@ -3,10 +3,10 @@ const alive_color = "black";
 const dead_color = "white";
 
 // on definit une taille de cellule qui ne change pas (const)
-const cell_size = 8;
+const cell_size = 20; // ici c'est 8  mais j'ai zooomeé à   20
 // on definit la largeur et la hauteur  de la longueur et la largeur
-const width = 50;
-const height = 50;
+const width = 10; //  ici c'est 50  pour les deux mais mis a 10 pour avoir 1 cellule
+const height = 10;
 const px_width = width * cell_size;
 const px_height = height * cell_size;
 
@@ -31,6 +31,7 @@ function update_view() {
     board.fillStyle = alive_color;
     for (let x = 0; x < width; x++) {
         for (let y = 0; y < height; y++) {
+            // cellules vivantes et morte contenus dans array
             if (array[x][y] == true) {
                 //pour afficher le cadriage et la couleur des cellules.
                 board.fillRect(x * cell_size, y * cell_size, cell_size, cell_size);
@@ -43,63 +44,94 @@ function update_view() {
         }
     }
 }
-// fonction pour compter les celleule on prends 1 cellule et on compte les cases autour diagonal y compris ici on en a 8.
-// puis on delimite la zone ou chercher width ,height 
-
+/* fonction pour compter le nombre  de cellule vivante autoure d'une cellule choisit on prends 1 cellule et on compte les cases autour diagonal y compris ici on en a 8 cellules autour.
+ puis on  delimite l'intervalle dans lequel nous devons compter x(0 à width)  et y (0 à height) */
 
 function count_neighbours(x, y) {
     let result = 0;
-    if (y < height - 1 &&  array[x][y+1]==true){
-            result++;
-        }
+    if (y < height - 1 && array[x][y + 1] == true) {
+        result++;
+    }
 
-        if(y > 0  && array[x][y-1 ]==true){
-            result++;
-        }
+    if (y > 0 && array[x][y - 1] == true) {
+        result++;
+    }
 
-        if( x > width   && array[x_1][y]==true){
-            result++
-        }
+    if (x > 0 && array[x - 1][y] == true) {
+        result++
+    }
 
-        if(array[x+1][y]==true){
-            result++;
-        }
-
-
-        if(array[x-1][y-1]==true){
-            result++;
-        }
-
-        if(array[x+1][y+1]==true){
-            result++;
-        } 
-
-        if(array[x-1][y]===true){
-            result++;
-        }
-
-        if(array[x+1][y+1]==true){
-            result++;
-        } 
-        
+    if (x < width - 1 && array[x + 1][y] == true) {
+        result++;
+    }
 
 
-    
+    if (x > 0 && y > 0 && array[x - 1][y - 1] == true) {
+        result++;
+    }
+
+    if (x < width - 1 && y < height - 1 && array[x + 1][y + 1] == true) {
+        result++;
+    }
+
+    if (x > 0 && y < height - 1 && array[x - 1][y + 1] == true) {
+        result++;
+    }
+
+    if (x < width - 1 && y < height - 1 && array[x + 1][y + 1] == true) {
+        result++;
+    }
+
+
     return result;
 }
-// fonction qui va verif
+
+/* fonction qui definit les règles du jeu
+ Si une cellule vivante a moins de 2 voisins, elle meure de solitude
+
+Si une cellule vivante a plus de 3 voisins, elle meure de surpopulation
+
+Si une cellule morte a 3 voisins, elle devient vivante
+
+Si une cellule a 2 voisins, elle conserve son etat actuel*/
 function update_model() {
-    for (let x = 0; x < width; x++)
-        for (let y = 0; y < height; y++){
+    // je met le résultat du retour de la fonction de remplir_new_array dans new_array 
+    let new_array = remplir_new_array();
+    // on definit une variable pour mettre le nombre de cellules vivantes voisine
+    let comptagecells;
+    for (let x = 0; x < width; x++) {
+        for (let y = 0; y < height; y++) {
+
+            comptagecells = count_neighbours(x, y);
+
+            if (comptagecells < 2) {
+                new_array[x][y] = false;
+                // "cellulle vivante meurt"
+
+            } if (comptagecells > 3) {
+                new_array[x][y] = false;
+                // " celle vivante meurt"
+
+            } if (comptagecells == 3) {
+                new_array[x][y] = true;
+                // "cellule morte devient vivante"
+
+            } if (comptagecells == 2 && array[x][y] == true) {
+                new_array[x][y] = true;
+                // " la cellule concerve son état"
             }
 
 
+        }
+        
+        // console.table(new_array);
 
 
 
- }
-
-
+    }
+    // on remplace l'ancien tableau par le nouveau creer
+    // array = new_array;
+}
 
 // premieer fonction du model view (fonction pour le  backgroung) pour dessiner
 function draw_backgroung() {
@@ -158,20 +190,42 @@ function generate_matrix() {
 
     // console.log(array);
 }
+function remplir_new_array() {
+    let new_array = [];
+    console.log("new_array");
+    // pour que le tableau new_array ne soit pas vide on met false pour avoir un valeur dans le tableau par défaut
+    for (let x = 0; x < width; x++) {
+        new_array.push([]);
+        for (let y = 0; y < height; y++) {
+            // console.log(x, y)
+            new_array[x].push(false);
+
+        }
+
+
+    }
+    // on fait un test avec cette valeur sur le tableau new_array avec 4 valeurs test mais on fait que avec des true car le tableau est remplit avec false par defaut.
+    new_array [4][2]=true; 
+    new_array [5][3]=true; 
+    new_array [0][3]=true;   
+    new_array [1][4]=true;  
+         
+    console.log(new_array);
+    return new_array;
+}
+
+// generate_matrix();
+ array=remplir_new_array();
+ update_model();
 draw_backgroung();
-generate_matrix();
 update_view();
-// count_neighbours();
-
-
-
-
 
 setInterval(async function tick() {
     // on l'appel ici pour lui dire de faire en tel et tel de min/s
 
-
-
 }, 1000);
 /* setInterval est la pour permettre au script de s'executer toutes les 1000ms
 apres sa premiere execution (dans l'en-tete html par exemple).*/
+
+
+
