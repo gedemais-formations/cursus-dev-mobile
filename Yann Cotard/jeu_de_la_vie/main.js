@@ -54,7 +54,7 @@ Compte le nombre de voisins vivants d'une cellule.
 function count_neighbours(x, y)
 {
     let result = 0;
-//  console.log(x-1, y-1);
+//  il s'agit ici de naviguer de cellule en cellule en utilsant "x+1" ou "x-1" sur l'axe horizontal et "y+1" et "y-1" sur l'axe vertical comme si on voulait se déplacer sur un échiquier.
    
       if(x>0 && y>0 && array[x-1][y-1]==true){
         result++
@@ -62,13 +62,16 @@ function count_neighbours(x, y)
       if(y>0 && array[x][y-1]==true){
         result++
       }
-      if(x>0 && y>0 && array[x+1][y-1]==true){
+    
+      if(x>0 && y>0 &&  x<width-1 && array[x+1][y-1]==true){ //"x<width-1" pour régler le problème quand on arrive en bordure de canvas
         result++
       }
+       
+      
       if(x>0 && array[x-1][y]==true){
         result++
       }
-      if(x>0 && array[x+1][y]==true){
+      if(x>0 &&  y>0 && x<width-1 && array[x+1][y]==true){
         result++
       }
       if(x>0 && y>0 && array[x-1][y+1]==true){
@@ -77,7 +80,7 @@ function count_neighbours(x, y)
       if(y>0 && array[x][y+1]==true){
         result++
       }
-      if(x>0 && y>0 && array[x+1][y+1]==true){
+      if(x>0 && y>0 && x<width-1 && array[x+1][y+1]==true){
         result++
       }
     
@@ -86,8 +89,6 @@ function count_neighbours(x, y)
   return result;
     
 }
-// count_neighbours()
-
 
 /* update_model
 Itere sur array pour appliquer les regles du jeu de la vie sur chacune des cellules du board.
