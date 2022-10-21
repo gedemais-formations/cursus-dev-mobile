@@ -146,6 +146,7 @@ function randomStart() {
     generateMatrix()
     drawBackground()
     setPixel(arrayCanvas)
+    countAliveOrDead();
 };
 
 //Button Start
@@ -159,6 +160,7 @@ function startPause() {
             propagePixel();
             drawBackground();
             setPixel(arrayCanvas);
+            countAliveOrDead();
         },cycleTime);
         btn.innerHTML = "Pause";
         btnStatus = false;
@@ -183,8 +185,9 @@ function reset() {
     initialTime = 0.00;
     timer.innerHTML =""
     btnStatus = false;
-    startPause()
-    drawBackground()
+    startPause();
+    drawBackground();
+    countAliveOrDead();
 }
 
 //cellule clickable 
@@ -231,7 +234,28 @@ canvas.addEventListener('mousedown', (e) => {
     }
     arrayCanvas = newClickArrayCanvas;
     btnStatus = false;
-    startPause()
-    drawBackground()
-    setPixel(arrayCanvas)
+    startPause();
+    drawBackground();
+    setPixel(arrayCanvas);
+    countAliveOrDead();
 });
+
+//Compte des cellules Alive et Dead
+function countAliveOrDead() {
+    let count = document.getElementById("countCellule");
+    let alive = 0;
+    let dead = 0;
+
+    for (let i = 0; i < arrayCanvas.length; i++) {
+        for (let j = 0; j <arrayCanvas[i].length; j++) {
+            if (arrayCanvas[i][j] == true) {
+                alive++
+            } else {
+                dead++
+            }
+        }
+    }
+
+    count.innerHTML = `Cellule(s) vivante(s) : ${alive} | 
+        Cellule(s) morte(s) : ${dead} `
+}
