@@ -115,17 +115,18 @@ let cycleTime = 100;
 function changeTime() {
     let newTime = document.getElementById("timerNumber");
     cycleTime = parseInt(newTime.value);
-    startPause()
+    startPause();
+    startPause();
 };
 
 let initialCycle = 0;
-let initialTime = 0;
+let initialTime = 0.00;
 function setTimer(timeAdded) {
     let timer = document.getElementById("timer");
     
-    initialTime += timeAdded;
+    initialTime += timeAdded/1000;
     initialCycle++;
-    timer.innerHTML = ` ${initialTime.toFixed(2)/1000} sec | ${initialCycle} cycle`;
+    timer.innerHTML = ` ${initialTime.toFixed(2)} sec | ${initialCycle} cycle`;
 };
 
 //Change de couleur
