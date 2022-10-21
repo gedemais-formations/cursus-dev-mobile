@@ -179,8 +179,8 @@ function reset() {
     arrayCanvas = resetArray;
     initialCycle = 0;
     initialTime = 0.00;
-    btnStatus = false;
     timer.innerHTML =""
+    btnStatus = false;
     startPause()
     drawBackground()
 }
@@ -228,6 +228,8 @@ canvas.addEventListener('mousedown', (e) => {
         }
     }
     arrayCanvas = newClickArrayCanvas;
+    btnStatus = false;
+    startPause()
     drawBackground()
     setPixel(arrayCanvas)
 });
