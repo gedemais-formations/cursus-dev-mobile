@@ -136,6 +136,8 @@ function colorChange() {
 
     deadColor = btnDeadColor.value;
     aliveColor = btnAliveColor.value;
+    drawBackground();
+    setPixel(arrayCanvas);
 };
 
 //Button random Start
