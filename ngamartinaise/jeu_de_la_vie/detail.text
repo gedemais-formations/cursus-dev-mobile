@@ -1,4 +1,24 @@
-canvas espace sur l'espace web dans le html
-taille d'une cellule a l'ecran en pexel en js 
-on definit la largeur et la hauteur en js 
-interrieur mettre  1 cellule bougeante
+
+
+    /* count_neighbours
+Compte le nombre de voisins vivants d'une cellule.
+*/
+function count_neighbours(x, y)
+{
+    let result = 0;
+
+    return result;
+}
+
+/* update_model
+Itere sur array pour appliquer les regles du jeu de la vie sur chacune des cellules du board.
+(Creer la fonction count_neighbours pour compter les voisins d'une cellule)
+Si une cellule vivante a moins de 2 voisins, elle meure de solitude
+Si une cellule vivante a plus de 3 voisins, elle meure de surpopulation
+Si une cellule morte a 3 voisins, elle devient vivante
+Si une cellule a 2 voisins, elle conserve son etat actuel*/
+
+function update_model()
+{
+    
+}
