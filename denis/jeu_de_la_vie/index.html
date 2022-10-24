@@ -18,12 +18,12 @@
 
         <!-- Speed formular allowing the user to choose a number of cycles per second-->
         <label id="speed_form_label" for="speed_form">Cycles/second:</label>
-        <input type="number" id="speed_form" value="10"></input>
-        <input type="button" id="speed_form" value="Apply" onclick="update_speed()"></input>
+        <input type="number" id="update_speed_number" value="10"></input>
+        <input type="button" id="update_speed_button" value="Changement de vitesse" onclick="update_speed()"></input>
 
         <!-- Pause, clear, and reset buttons, connected to their respective js functions -->
         <input type="button" id="pause_button" value="Pause" onclick="pause(this)"></input>
-        <input type="button" id="reset_button" value="Random Shuffle" onclick="reset()"></input>
+        <input type="button" id="reset_button" value="Melange" onclick="reset()"></input>
 
         <!-- Color formulars allowing the user to choose alive and dead colors for cells -->
         <label id="alive_color_form_label" for="alive_color_form">Alive:</label>
@@ -32,10 +32,15 @@
         <input type="color" id="dead_color_form" value="#FFFFFF"></input>
 
         <!-- Button used to apply selected colors -->
-        <input type="button" id="speed_form" value="Apply" onclick="update_colors()"></input>
+        <input type="button" id="update_colors.button" value="Changement de couleurs" onclick="update_colors()"></input>
         <!-- Button used to clear the board -->
-        <input type="button" id="clear_form" value="Clear" onclick="clear_board()"></input>
+        <input type="button" id="clear_form" value="Effacer" onclick="clear_board()"></input>
         <br>
+		<!--
+			let x= document.getElementById("id_du_composant_html");
+		-->
+
+
     
 	</div>
 		

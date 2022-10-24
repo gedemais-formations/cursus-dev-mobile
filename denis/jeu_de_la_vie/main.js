@@ -1,5 +1,5 @@
-const alive_color = "black";
-const dead_color = "white";
+let alive_color = "#ff0066";
+let dead_color = "white";
 
 const cell_size = 8; // normalement c'est 8
 
@@ -16,7 +16,11 @@ const board_canvas = document.getElementById("board");
 const board = board_canvas.getContext("2d");
 
 let array = []; // model data structure
-
+/*
+elle affiche les cellules vivante du tableau
+*/
+let is_pause_button = false;
+let idintrval;
 function update_view() {
   board.fillStyle = alive_color;
   for (let x = 0; x < width; x++)
@@ -26,8 +30,31 @@ function update_view() {
         board.fillRect(x * cell_size, y * cell_size, cell_size, cell_size);
 }
 function update_speed() {
-  alert("vous avez cliquer sur update_speed");
+  // alert("vous avez cliquer sur update_speed");
+
+  clearInterval(idintrval);
+  let htmlupdatespeed = document.getElementById("update_speed_number");
+
+  let cycle = htmlupdatespeed.value;
+  if (cycle < 1) {
+    // valeur trop petite
+    alert("valeur trop petite");
+  } else {
+    let interval = 1000 / parseInt(cycle);
+
+    alert("la valeur de cycle " + cycle + " int=" + interval);
+
+    idintrval = setInterval(async function tick() {
+      start_game();
+    }, interval);
+    if (is_pause_button) {
+      // je fais rien
+    } else {
+      start_game();
+    }
+  }
 }
+
 function reset() {
   // alert("vous avez cliquer sur reset");
   generate_matrix();
@@ -50,10 +77,29 @@ function clear_board() {
   update_view();
 }
 function pause() {
-  alert("vous avez cliquer sur pause");
+  //alert("vous avez cliquer sur pause");
+  let pause_button = document.getElementById("pause_button"); //chercher l'element dans l'html id="pause_button"
+  //console.log(pause_button.value); // lire la valeur qui es dans pause_button.value
+  // pause_button.value = "luis"; //  changer la valeur qui es dans pause_button.value
+  is_pause_button = !is_pause_button;
+  if (is_pause_button) {
+    pause_button.value = "continuer";
+  } else {
+    pause_button.value = "arreter";
+  }
 }
 function update_colors() {
-  alert("vous avec cliquer sur update_color");
+  //alert("vous avec cliquer sur update_color");
+
+  let element_alive_color = document.getElementById("alive_color_form");
+  // j'ai  recoupere la couleurs vivante
+  alive_color = element_alive_color.value;
+  //je vais recouperer la couleurs pour les mort
+  let element_dead_color = document.getElementById("dead_color_form");
+  dead_color = element_dead_color.value;
+  // afficher de nouveau la grille avec les couleurs
+  draw_background(); // mort
+  update_view(); // vivant
 }
 
 //
@@ -61,7 +107,9 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-//
+/*
+designe le quadrillage avec la couleurs des morts
+*/
 function draw_background() {
   board_canvas.width = px_width; // largeur en pixels du canvas
   board_canvas.height = px_height; // Hauteur en pixel du canvas
@@ -89,7 +137,7 @@ function draw_background() {
   // generate_matrix();
 }
 function generate_matrix_test() {
-  alert("je suis dans generate_matrix_test");
+  // alert("je suis dans generate_matrix_test");
 
   console.info("Tableau de jeuTest w=" + width + " h=" + height);
   array = [];
@@ -167,18 +215,22 @@ function update_model() {
 function start_game() {
   let result;
   console.log();
-
-  generate_matrix_test();
+  generate_matrix(); // provisoire
   update_model();
   draw_background();
   update_view();
   return result;
 }
-start_game();
-/*
-setInterval(async function tick() {
- start_game();
+// generate_matrix_test();
+generate_matrix();
+//start_game();
+idintrval = setInterval(async function tick() {
+  if (is_pause_button) {
+    // je fais rien
+  } else {
+    start_game();
+  }
 }, 1000);
-*/
+
 /* setInterval est la pour permettre au script de s'executer toutes les 1000ms
 apres sa premiere execution (dans l'en-tete html par exemple).*/
