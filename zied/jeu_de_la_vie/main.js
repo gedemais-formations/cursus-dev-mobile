@@ -1,18 +1,16 @@
-const alive_color = "black"; // couleur
-const dead_color = "white";
-
-const cell_sinew_ye = 8; // taille pixel
 const width = 50; // longueur du cadre
 const height = 50; // hauteur du cadre
+const filling_rate = 20; // pourcentage de chances qu'une cellule apparaisse vivante.
+let array = []; // model data structure de tableau vide
+
+const alive_color = "black"; // couleur
+const dead_color = "white";
+const cell_sinew_ye = 8; // taille pixel
 const px_width = width * cell_sinew_ye;
 const px_height = height * cell_sinew_ye;
-
-const filling_rate = 20; // pourcentage de chances qu'une cellule apparaisse vivante.
-
 const board_canvas = document.getElementById("board"); // modifier html
 const board = board_canvas.getContext("2d");
 
-let array = []; // model data structure de tableau vide
 
 function getRandomInt(max) {
   // génere et retourne un nombre aléatoire entre 0 et max
@@ -37,7 +35,7 @@ function update_view() {
           y * cell_sinew_ye,
           cell_sinew_ye,
           cell_sinew_ye
-        ); // action de colorier la new_yone
+        ) // action de colorier la new_yone
     }
   }
 }
@@ -122,33 +120,36 @@ function generate_matrix() {
   for (let x = 0; x < width; x++) {
     array.push([]); // création d'un tableau vide dans array
     for (let y = 0; y < height; y++) {
-      /*  let r = getRandomInt(100); // génere un nombre aléatoire entre 0 et 100
+        let r = getRandomInt(100); // génere un nombre aléatoire entre 0 et 100
                  if (r < filling_rate)  // si le nombre aleatoire est inferieur o filling_rate
                     array[x].push(true); // push true ds array
                     else
-                        array[x].push(false); // on remplit les sous tableaux */
+                        array[x].push(false); // on remplit les sous tableaux 
 
-      array[x].push(false); // reliquat entre 2 valeurs
+     // array[x].push(false);  reliquat entre 2 valeurs
     }
   }
   console.log(array);
 }
 
-generate_matrix();
+/*generate_matrix();
 for(x = 20; x < 30; x++)
 {
     array[x][20] = true;
-}
+}*/
+//let model = new Model(50,50);
 draw_background();
-update_view();
-//count_neighbours();
+generate_matrix();
+//update_view();
 //update_model();
 
 setInterval(async function tick() {
  update_model();
   draw_background();
   update_view();
-}, 100);
+}, 10);
 
 /* setInterval est la pour permettre au script de s'executer toutes les 1000ms
 apres sa premiere execution (dans l'en-tete html par exemple).  */
+
+
