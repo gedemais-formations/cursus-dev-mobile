@@ -1,12 +1,12 @@
 const cell_size = 12;
-const width = 30;
-const height = 30;
+const width = 60;
+const height = 60;
 const px_width = width * cell_size;
 const px_height = height * cell_size;
 const board_canvas = document.getElementById("board");
 const board = board_canvas.getContext("2d");
-const alive_color = "black";
-const dead_color = "white";
+let alive_color = "black";
+let dead_color = "white";
 const filling_rate = 20; //poucentage de chances qu'une cellule apparaisse vivante
 const x_vertical = [0, 0, 1, -1, -1, 1, -1, 1];
 const y_horizontal = [1, -1, 0, 0, -1, 1, 1, -1];
@@ -56,22 +56,17 @@ function update_model() {
       if (resultat == 3) {
        newArray[a].push(true);
 
-        
-
       }
-
-            //supérieur a 3 , elle meurt
-
+   
+      //supérieur a 3 , elle meurt
       if (resultat > 3) {
        newArray[a].push(false);
 
-
       }
-
       // egal à 2, elle reste en vie
       if (resultat == 2) {
         newArray[a].push(array[a][i]);
-
+       
       }
     }
   }
@@ -79,7 +74,7 @@ function update_model() {
 }
 
 
-console.log(array);
+//console.log(array);
 
 
 function update_view() {
@@ -139,21 +134,26 @@ function generate_matrix() {
     }
   }
 
-  console.table(array);
+  //console.table(array);
 
 }
 
+
+
+
+
 /**************************************************************** */
+let livecycle = 0;
 
 
 generate_matrix();
-
-
 
 let action = setInterval(async function tick() {
   draw_background();
   update_model();
   update_view();
+  let cycle_live = document.querySelector('.cycle_live').innerText=`le nombre de cycle de vie est de : ${livecycle++}`
+
 }, 100);
 /* setInterval est la pour permettre au script de s'executer toutes les 1000ms
 apres sa premiere execution (dans l'en-tete html par exemple).*/
