@@ -1,3 +1,4 @@
+/*
 const width = 50; // longueur du cadre
 const height = 50; // hauteur du cadre
 const filling_rate = 20; // pourcentage de chances qu'une cellule apparaisse vivante.
@@ -10,22 +11,23 @@ const px_width = width * cell_sinew_ye;
 const px_height = height * cell_sinew_ye;
 const board_canvas = document.getElementById("board"); // modifier html
 const board = board_canvas.getContext("2d");
-
-
+*/
+/*
 function getRandomInt(max) {
   // génere et retourne un nombre aléatoire entre 0 et max
   return Math.floor(Math.random() * max);
 }
-
+*/
 /*  fonction update_view()
        iterer sur(avec une double boucle) array, et de dessiner les pixels representants les cellules vivantes;
        board. fillRect(x_start, y_start, rect_width, rect_height);
   */
+ /*
 function update_view() {
-  /*
+  
        si la valeur est true => couleur   et  si la valeur est false => rien
 
-     */
+     
   board.fillStyle = alive_color; // pour la couleur de la cellule
   for (let x = 0; x < width; x++) {
     for (let y = 0; y < height; y++) {
@@ -39,10 +41,10 @@ function update_view() {
     }
   }
 }
-
+*/
 /* count_neighbours 
 Compte le nombre de voisins vivants d'une cellule.*/
-
+/*
 function count_neighbours(x, y) {
   let result = 0;
 
@@ -62,7 +64,7 @@ function count_neighbours(x, y) {
   console.log("tgttyhyt");
   return result;
 }
-
+*/
 /* update_model
 Itere sur array pour appliquer les regles du jeu de la vie sur chacune des cellules du board.
 (Creer la fonction count_neighbours pour compter les voisins d'une cellule)
@@ -70,7 +72,7 @@ Si une cellule vivante a moins de 2 voisins, elle meure de solitude
 Si une cellule vivante a plus de 3 voisins, elle meure de surpopulation
 Si une cellule morte a 3 voisins, elle devient vivante
 Si une cellule a 2 voisins, elle conserve son etat actuel*/
-
+/*
 function update_model() {
   let new_array = [];
   let result;
@@ -88,7 +90,8 @@ function update_model() {
   }
   array = new_array;
 }
-
+*/
+/*
 function draw_background() {
   board_canvas.width = px_width; // larguer pixel
   board_canvas.height = px_height; // hauteur pixel
@@ -115,41 +118,59 @@ function draw_background() {
 
   board.stroke(); // demande d'affiche
 }
-
+*/
+/*
 function generate_matrix() {
-  for (let x = 0; x < width; x++) {
-    array.push([]); // création d'un tableau vide dans array
-    for (let y = 0; y < height; y++) {
+  for (let x = 0; x < this.width; x++) {
+    this.array.push([]); // création d'un tableau vide dans array
+    for (let y = 0; y < this.height; y++) {
         let r = getRandomInt(100); // génere un nombre aléatoire entre 0 et 100
-                 if (r < filling_rate)  // si le nombre aleatoire est inferieur o filling_rate
-                    array[x].push(true); // push true ds array
+                 if (r < this.filling_rate)  // si le nombre aleatoire est inferieur o filling_rate
+                    this.array[x].push(true); // push true ds array
                     else
-                        array[x].push(false); // on remplit les sous tableaux 
+                        this.array[x].push(false); // on remplit les sous tableaux 
 
      // array[x].push(false);  reliquat entre 2 valeurs
     }
   }
-  console.log(array);
+  console.log(this.array);
 }
-
+*/
 /*generate_matrix();
 for(x = 20; x < 30; x++)
 {
     array[x][20] = true;
 }*/
-//let model = new Model(50,50);
-draw_background();
-generate_matrix();
+
+
+function update_speed() {
+  let time;
+  
+ // Sélectionner l'élément input et récupérer sa valeur
+ var input = document.getElementById("speed_form").value;
+ // Afficher la valeur
+ time = input;
+console.log(time);
+}
+let model = new Model(50,50);
+let view = new View("black", "white", 8 , model.width, model.height )
+//view.draw_background();
+
+model.generate_matrix();
+
 //update_view();
 //update_model();
 
 setInterval(async function tick() {
- update_model();
-  draw_background();
-  update_view();
-}, 10);
+ 
+  view.draw_background();
+  view.update_view(model.width, model.height, model.array);
+  model.update_model();
+}, (time));
 
 /* setInterval est la pour permettre au script de s'executer toutes les 1000ms
 apres sa premiere execution (dans l'en-tete html par exemple).  */
 
 
+let toto = document.getElementById('speed_form');
+toto.value

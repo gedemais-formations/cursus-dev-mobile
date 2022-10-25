@@ -69,7 +69,7 @@ Méthodes :
             { 
               for (let new_y = y - 1; new_y <= y + 1; new_y++) 
                 {
-                    console.log(new_x, new_y);
+                   // console.log(new_x, new_y);
 
                 if (
                   new_x >= 0 &&
