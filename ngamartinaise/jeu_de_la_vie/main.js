@@ -1,15 +1,43 @@
+
+const cycle = document.getElementById("cycle");
+// console.log("comptage de cycle", cycle.value);
+const btncontinuer = document.getElementById("continuer");
+const vivantspan = document.getElementById("vivant");
+const mortspan = document.getElementById("mort");
+// console.log(vivant);
+//recupère le bouton
+const changecolor =document.getElementById("changecolor");
+
+
+btncontinuer.addEventListener("click",function(e){  
+
+});
+
 // choisir la couleur des celleules si vivante ou morte qui ne change pas  (const)
-const alive_color = "black";
-const dead_color = "white";
+let alive_color = "black";
+let dead_color = "white";
+vivantspan.style.backgroundColor= alive_color;
+mortspan.style.backgroundColor=dead_color;
+//  on met l'évement click sur le  bouton 
+changecolor.addEventListener("click",function(e){
+const {vivant,mort} = couleuraleatoire();
+// console.log(alive_color,dead_color);
+alive_color=`#${vivant}`
+dead_color=`#${mort}`
+vivantspan.style.backgroundColor= alive_color;
+mortspan.style.backgroundColor= dead_color;
+
+
+});
+
 
 // on definit une taille de cellule qui ne change pas (const)
-const cell_size = 20; // ici c'est 8  mais j'ai zooomeé à   20
+const cell_size = 8; // ici c'est 8  mais j'ai zooomeé à   20
 // on definit la largeur et la hauteur  de la longueur et la largeur
-const width = 10; //  ici c'est 50  pour les deux mais mis a 10 pour avoir 1 cellule
-const height = 10;
+const width = 50; //  ici c'est 50  pour les deux mais mis a 10 pour avoir 1 cellule
+const height = 50;
 const px_width = width * cell_size;
 const px_height = height * cell_size;
-
 
 // on recupère l'id  de canvas dans html
 const board_canvas = document.getElementById('board');
@@ -23,8 +51,6 @@ function getRandomInt(max) {
 
     return Math.floor(Math.random() * max);
 }
-
-
 // pour faire apparaitre une des cellules morte ou vivante dans le tableau selon leur couleur
 function update_view() {
     // mettre la couleur qu'on va definir
@@ -52,38 +78,80 @@ function count_neighbours(x, y) {
     if (y < height - 1 && array[x][y + 1] == true) {
         result++;
     }
+    // console.log("sud");
+    // console.log(array[x][y + 1]);
+    // console.log(result);
+
+
 
     if (y > 0 && array[x][y - 1] == true) {
         result++;
     }
+    // console.log("nord");
+    // console.log(array[x][y - 1]);
+    // console.log(result);
 
     if (x > 0 && array[x - 1][y] == true) {
         result++
     }
 
+    // console.log("oeust");
+    // console.log(array[x- 1][y]);
+    // console.log(x- 1, y );
+    // console.log(result);
+
     if (x < width - 1 && array[x + 1][y] == true) {
         result++;
     }
+    // console.log("est");
+    // console.log(array[x+ 1][y ]);
+    // console.log(x+ 1, y );
+    // console.log(result);
 
 
     if (x > 0 && y > 0 && array[x - 1][y - 1] == true) {
         result++;
     }
+    // console.log("nord oeust");
+    // console.log(array[x- 1][y - 1]);
+    // console.log(x- 1, y - 1);
+    // console.log(result);
 
-    if (x < width - 1 && y < height - 1 && array[x + 1][y + 1] == true) {
+
+    if (x < width - 1 && y > 0 && array[x + 1][y - 1] == true) {
         result++;
     }
+    //  console.log("nord est");
+    // console.log(array[x+1][y - 1]);
+    // console.log(x+1, y - 1);
+    // console.log(result);
 
     if (x > 0 && y < height - 1 && array[x - 1][y + 1] == true) {
         result++;
     }
+    //   console.log("sud oeust");
+    // console.log(array[x- 1][y + 1]);
+    // console.log(x- 1, y + 1);
+    // console.log(result);
 
     if (x < width - 1 && y < height - 1 && array[x + 1][y + 1] == true) {
         result++;
     }
+    //   console.log("sud est");
+    // console.log(array[x+1][y + 1]);
+    // console.log(x+1, y + 1);
+    // console.log(result);
 
 
     return result;
+}
+//rend des combinaissons(chiffre et lettres) et retourne deux combinaisson de couleur
+
+function couleuraleatoire(){
+    const vivant = Math.floor(Math.random()*16777215).toString(16);
+    const mort = Math.floor(Math.random()*16777215).toString(16);
+return {vivant,mort};
+
 }
 
 /* fonction qui definit les règles du jeu
@@ -123,14 +191,13 @@ function update_model() {
 
 
         }
-        
-        // console.table(new_array);
 
+        // console.table(new_array);
 
 
     }
     // on remplace l'ancien tableau par le nouveau creer
-    // array = new_array;
+    array = new_array;
 }
 
 // premieer fonction du model view (fonction pour le  backgroung) pour dessiner
@@ -188,7 +255,7 @@ function generate_matrix() {
         }
     }
 
-    // console.log(array);
+    console.log(array);
 }
 function remplir_new_array() {
     let new_array = [];
@@ -202,26 +269,59 @@ function remplir_new_array() {
 
         }
 
-
     }
-    // on fait un test avec cette valeur sur le tableau new_array avec 4 valeurs test mais on fait que avec des true car le tableau est remplit avec false par defaut.
-    new_array [4][2]=true; 
-    new_array [5][3]=true; 
-    new_array [0][3]=true;   
-    new_array [1][4]=true;  
-         
-    console.log(new_array);
+
+    // console.log(new_array);
     return new_array;
 }
 
-// generate_matrix();
- array=remplir_new_array();
- update_model();
-draw_backgroung();
-update_view();
+generate_matrix();
+//array = remplir_new_array();
+// on fait un test avec cette valeur sur le tableau new_array avec 4 valeurs test mais on fait qu' avec des true car le tableau est remplit avec false par defaut.
+array[2][2] = true;
+array[1][4] = true;
+array[9][7] = true;
+
+//console.log(array);
+// onsole.log(count_neighbours(1,2 ));
+// console.log(count_neighbours(1,3 ));
+// console.log(count_neighbours(1,4 ));
+
+// console.log(count_neighbours(9,7 ));
+// console.log(count_neighbours(9,6 ));
+// console.log(count_neighbours(9,5 ));
+
+
+// console.log(count_neighbours( 1,1 ));
+// console.log(count_neighbours(1,2 ));
+// console.log(count_neighbours(1,3 ));
+// console.log(count_neighbours(2,1 ));
+// console.log(count_neighbours(3,1 ));
+// console.log(count_neighbours(3,2 ));
+// console.log(count_neighbours(3,3 ));
+// console.log(count_neighbours(2,3 ));
+
+// test des cellules vivantes et morte
+
+array[1][4] = true;
+array[1][5] = true;
+array[1][6] = true;
+array[2][5] = true;
+array[0][5] = true;
+
+
+
+
+//update_model();
+// draw_backgroung();
+// update_view();
 
 setInterval(async function tick() {
     // on l'appel ici pour lui dire de faire en tel et tel de min/s
+    update_model();
+    draw_backgroung();
+    update_view();
+
 
 }, 1000);
 /* setInterval est la pour permettre au script de s'executer toutes les 1000ms
