@@ -1,6 +1,15 @@
-body
-{
+body {
   background-color: grey;
   text-align: center;
 }
+#vivant {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+}
 
+#mort {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+}

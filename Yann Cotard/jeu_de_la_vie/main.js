@@ -1,19 +1,19 @@
-//définition couleur des pixels vivants ou morts
-const alive_color = "black";
-const dead_color = "white";
+// //définition couleur des pixels vivants ou morts
+// const alive_color = "black";
+// const dead_color = "white";
 
-//définition taille cellule (en px)
-const cell_size = 8;
+// //définition taille cellule (en px)
+// const cell_size = 8;
 
-//définition largeur et hauteur du canvas (en nombre de cellule)
-const width = 100;
-const height = 100;
+// //définition largeur et hauteur du canvas (en nombre de cellule)
+// const width = 100;
+// const height = 100;
 
-//defintion du canvas en pixel
-const px_width = width * cell_size;
-const px_height = height * cell_size;
+// //defintion du canvas en pixel
+// const px_width = width * cell_size;
+// const px_height = height * cell_size;
 
-//pourcentage de chances qu'une cellule apparaisse vivante
+// //pourcentage de chances qu'une cellule apparaisse vivante
 const filling_rate = 20;
 
 //obtention de l'élément canvas dans le html
@@ -91,11 +91,12 @@ Si une cellule morte a 3 voisins, elle devient vivante
 Si une cellule a 2 voisins, elle conserve son etat actuel*/
 
 function update_model() {
+
   let nb_neighbours;
   let newTab=[];
  
   for (let x = 0; x < width; x++) {
-    newTab.push([])
+    newTab.push([]);
     for (let y = 0; y < height; y++) {
       nb_neighbours = count_neighbours(x, y); //on stocke la fonction "count_neighbours(x, y)" dans une variable pour faciliter la saisie et la lecture du code
 
@@ -123,7 +124,7 @@ function update_model() {
   }
   array=newTab;
 }
-//createNewTab();
+createNewTab();
 
 function draw_background() {
   board_canvas.width = px_width; //largeur en pixel du canvas
@@ -151,11 +152,12 @@ function draw_background() {
 }
 
 function createNewTab() {
+  let newTab=[];
   for (let x = 0; x < width; x++) {
-    newTab.push([]); //pour générer un tableau vide
+   newTab.push([]); //pour générer un tableau vide
     
     for (let y = 0; y < height; y++) {
-      newTab[x].push(getRandomInt(100) < filling_rate);
+    newTab[x].push(getRandomInt(100) < this.filling_rate);
 
     }
   }
@@ -182,7 +184,6 @@ function generate_matrix() {
    }
  }
 }
-
 
 
 
