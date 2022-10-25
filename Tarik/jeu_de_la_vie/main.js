@@ -129,7 +129,7 @@ function setTimer(timeAdded) {
     timer.innerHTML = ` ${initialTime.toFixed(2)} sec | ${initialCycle} cycle`;
 };
 
-//Change de couleur
+// Change de couleur
 function colorChange() {
     let btnDeadColor = document.getElementById("colorDead");
     let btnAliveColor = document.getElementById("colorAlive");
@@ -190,8 +190,8 @@ function reset() {
     countAliveOrDead();
 }
 
-//cellule clickable 
-//recupérer la position de la souris par rapport au canvas
+// cellule clickable 
+// recupérer la position de la souris par rapport au canvas
 function getCursorPosition(canvas, event) {
     const rect = canvas.getBoundingClientRect()
     const x = event.clientX - rect.left
@@ -199,7 +199,7 @@ function getCursorPosition(canvas, event) {
     return [10*Math.floor(x/cellSize), 10*Math.floor(y/cellSize)]
 };
 
-//génére une matrix vide de cellule
+// génére une matrix vide de cellule
 function generateNewMatrix() {
     if (arrayCanvas.length == widthCanvas) {
         return arrayCanvas;
@@ -240,7 +240,7 @@ canvas.addEventListener('mousedown', (e) => {
     countAliveOrDead();
 });
 
-//Compte des cellules Alive et Dead
+// Compte des cellules Alive et Dead
 function countAliveOrDead() {
     let count = document.getElementById("countCellule");
     let alive = 0;
