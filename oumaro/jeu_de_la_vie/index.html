@@ -9,13 +9,21 @@
 	</head>
 
 	<body>
+
+		<h1>Jeu de la vie</h1>
 		
 		<div class="nav">
-			<p class="btn pause" >Pause</p>
-
+			<p class="btn pause">Pause</p>
+			<p class="btn load">🔄</p>
+			<span>Dead ☠️​ : <input type="color" name="color" value="dead_color" id="dead" onchange="Change_Color('dead')"></span>
+			<span>Alive ​😇​​ : <input type="color" name="color" value="alive_color" id="alive" onchange="Change_Color('alive')"></span>
+			
 		</div>
 		<canvas id="board"></canvas>
-		<script type="text/javascript" src="./main.js"></script>
+		<p class="cycle_live"></p>
+		<div class="cell_nbr"></div>
 		<script src="./button.js"></script>
+		
+		<script type="text/javascript" src="./main.js"></script>  
 	</body>
 </html>

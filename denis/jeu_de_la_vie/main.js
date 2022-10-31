@@ -1,10 +1,10 @@
 let alive_color = "#ff0066";
 let dead_color = "white";
+let aujd = new Date();
+const cell_size = 8; // normalement c'est 8 ou 20
 
-const cell_size = 8; // normalement c'est 8
-
-const width = 50; //normalement cest 50
-const height = 50; // 50 aussi
+const width = 50; //normalement cest 50 ou moins
+const height = 50; // 50 aussi ou moins
 
 const px_width = width * cell_size;
 const px_height = height * cell_size;
@@ -21,6 +21,8 @@ elle affiche les cellules vivante du tableau
 */
 let is_pause_button = false;
 let idintrval;
+let compteur_cycle = 0;
+
 function update_view() {
   board.fillStyle = alive_color;
   for (let x = 0; x < width; x++)
@@ -29,6 +31,16 @@ function update_view() {
       if (array[x][y] == true)
         board.fillRect(x * cell_size, y * cell_size, cell_size, cell_size);
 }
+function gestion_cycle() {
+  let timer = document.getElementById("timer");
+  let temps_ecoule = "12.45s";
+  timer.innerText = "Cycle : " + compteur_cycle + "| " + temps_ecoule;
+  console.log("je suis dans la gestion cycle");
+  // setInterval(diminuerTemps, 1000);
+}
+
+// let secondes = parseInt(temps % 00, 00);
+
 function update_speed() {
   // alert("vous avez cliquer sur update_speed");
 
@@ -224,7 +236,10 @@ function start_game() {
 // generate_matrix_test();
 generate_matrix();
 //start_game();
+
 idintrval = setInterval(async function tick() {
+  compteur_cycle++;
+  gestion_cycle();
   if (is_pause_button) {
     // je fais rien
   } else {

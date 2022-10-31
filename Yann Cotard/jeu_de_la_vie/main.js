@@ -3,7 +3,7 @@
 // const dead_color = "white";
 
 // //définition taille cellule (en px)
-// const cell_size = 8;
+const cell_size = 8;
 
 // //définition largeur et hauteur du canvas (en nombre de cellule)
 // const width = 100;
@@ -185,7 +185,53 @@ function generate_matrix() {
  }
 }
 
+//fonction pur calculer temps et nombre de tours de la fonction "tick"
+//récupération du paragraphe timer
+let timerElement = document.getElementById('timer');
+//création variable "time" à zéro
+let time = 0;
 
+function temps(){
+  //calcul du temps
+  let minutes = parseInt(time / 60, 10);
+  let secondes = parseInt(time % 60, 10);
+  let count = parseInt(time, 10)
+  
+  //formatage du temps
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  secondes = secondes < 10 ? "0" + secondes : secondes;
+
+  //modification de l'affichage
+  timerElement.innerText="Cycles :" + count  + "|" + minutes + ":" + secondes + "s";
+  time++;
+}
+
+//fonction update color pour changer la couleur des cellules mortes et vivante
+function update_colors() {
+  
+  //sélection des input type color
+  let aliveColorPicker = document.getElementById('alive_color_form');
+  let deadColorPicker = document.getElementById('dead_color_form');
+
+  //application des valeur changées
+  alive_color = aliveColorPicker.value;
+  dead_color = deadColorPicker.value;
+
+
+};
+
+//fonction pour retourner aux couleurs initiales (blanc et noir)
+function clear_board(){
+  alive_color = "black";
+  dead_color = "white";
+}
+
+//fonction pour changer la vitesse d'execution
+function update_speed(){
+
+let inputNumber = document.getElementById('speed_form');
+
+let delay = 1000 / inputNumber.value;
 
 generate_matrix();
 draw_background();
@@ -195,7 +241,23 @@ setInterval(async function tick() {
   update_model();
   draw_background();
   updateView();
-}, 100);
+  temps();
+  
+}, delay);
+
+
+};
+
+let is_paused_button=false;
+let intervalID;
+function pause(){
+  let inputPause = document.getElementById('pause_button');
+
+  intervalID = clearInterval();
+
+};
 
 // setInterval est la pour permettre au script de s'executer toutes les 1000ms
 // apres sa premiere execution (dans l'en-tete html par exemple).
+
+
