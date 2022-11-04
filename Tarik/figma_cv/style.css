@@ -111,3 +111,7 @@ header img {
     color: white;
     font-size: 30px;
 }
+
+.btn-dl button:hover {
+    cursor: pointer;
+}
