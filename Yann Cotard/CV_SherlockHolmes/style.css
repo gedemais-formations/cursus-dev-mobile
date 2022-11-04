@@ -1,0 +1,335 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+}
+
+body{
+    font-family: roboto sans-serif, Arial, Helvetica, sans-serif;
+    background-color: #f1f1f1;
+}
+
+
+
+h2, h3, h4, h5, h6{
+    font-family: Montserrat sans-serif;
+    color: #03CFFC;
+}
+
+/**************************HEAD***********************************************/
+.head{
+    background-color: #797272;
+    width: 100vw;
+    height: 60vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0, 15px, 0, 15px;
+    
+}
+.image{
+    width: 45%;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10rem;
+}
+.image img{
+    border-radius: 50%;
+    border: 10px solid #93735C;
+}
+
+.introduction{
+    width: 55%;
+    height: 30vh;
+    margin-right: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px, 15px,25px,15px;
+
+}
+
+h1{
+    width: 50%;
+    font-family: Montserrat sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    padding: 15px;
+    border: 3px solid white;
+}
+
+#intro{
+    font-size: 1.4rem;
+    color: white;
+}
+
+/***********************BODY  PREMIERE SECTION ******************************/
+.first{
+    display: flex;
+    margin-top: 3rem;
+    padding: 1.5rem;
+}
+.seconde, .trois, .quatre{
+    display: flex;
+    padding: 1.5rem;
+}
+.article1, .article2, .article3, .article4, .article5, .article6, .article7, .article8{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    font-size: 1.3em;
+}
+.communication, .organisation, .ideas, .problem, .creative{
+    display: flex;
+   font-weight: bold;
+   justify-content: space-between;
+}
+.article1, .article3, .article5, .article7{
+    
+    border-right: 2px solid  #BABABA;
+}
+.article2, .article4, .article6, .article8{
+    border-left: 2px solid #bababa;
+}
+
+h2{
+    border-bottom: 3px solid  #03CFFC;;
+} 
+
+.persoSkill ul {
+    display: flex;
+   justify-content:flex-end;
+}
+
+h2{
+    margin-bottom: 1.7rem;
+}
+
+li{
+    list-style: none;
+    font-size: 2.3rem;
+    margin-top: -7px;
+    color: #03CFFC;
+}
+
+.communication ul, .organisation ul, .ideas ul, .creative ul, .problem ul{
+
+    display:flex;
+    justify-content: flex-end;
+}
+
+
+.organisation li:nth-child(7){
+    color: #BABABA;
+}
+
+
+.ideas li:nth-child(6), .ideas li:nth-child(7){
+    color: #BABABA;
+}
+
+.problem li:nth-child(5), .problem li:nth-child(6), .problem li:nth-child(7){
+    color: #BABABA;
+}
+
+
+.creative li:nth-child(4), .creative li:nth-child(5), .creative li:nth-child(6), .creative li:nth-child(7){
+    
+    color: #BABABA;
+}
+
+/****************BODY DEUXIEME SECTION*************************************/
+
+.sex p, .address p, .phone p, .email p, .website p{
+    display:inline;
+    width: 50%;
+    line-height: 2.5rem;
+   
+}
+.sex, .address, .phone, .email, .website{
+    display: flex;
+    flex-direction: row;
+}
+.sex p:nth-child(1), .address p:nth-child(1), .phone p:nth-child(1), .email p:nth-child(1), .website p:nth-child(1){
+    font-weight: bold;
+    
+}
+.sex p:nth-child(2), .address p:nth-child(2), .phone p:nth-child(2), .email p:nth-child(2), .website p:nth-child(2){
+    display: flex;
+   justify-content: flex-end;
+    
+}
+
+.php ul, .java ul, .javascript ul, .html ul, .css ul{
+    margin-top: -20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.proSkill p{
+    font-weight: bold;
+}
+
+.java li:nth-child(7){
+    color: #BABABA;
+}
+
+
+.javascript li:nth-child(6), .javascript li:nth-child(7){
+    color: #BABABA;
+}
+
+.html li:nth-child(5), .html li:nth-child(6), .html li:nth-child(7){
+    color: #BABABA;
+}
+
+
+.css li:nth-child(4), .css li:nth-child(5), .css li:nth-child(6), .css li:nth-child(7){
+    
+    color: #BABABA;
+}
+
+/*****************BODY TROISIEME SECTION***********************************/
+.date1, .date2, .date3, .date4{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.date, .lead, .senior, .junior{
+    display: flex;
+    font-weight: bold;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+    margin-top: -7px;
+}
+
+.agence{
+    color: #03CFFC;
+    font-weight: bold;
+}
+
+.twitter, .facebook, .instagram{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.7rem;
+}
+
+i{
+    display: flex;
+    justify-content: flex-start;
+}
+
+/****************************BODY QUATRIEME SECTION********************************/
+
+.interest{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.violon, .chess, .detective{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.interest i{
+    margin-bottom: 0.3rem;
+}
+
+/****************************BOUTON FIN DE PAGE*********************************************/
+
+.footer{
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem auto;
+}
+
+.footer button{
+    width: 20rem;
+    height: 5rem;
+    font-size: 1.5rem;
+    padding-right: 20px;
+    padding-left: 20px;
+    border: 5px solid blue;
+    border-radius: 50px;
+    background-color:  #03CFFC;
+    color: #f1f1f1;
+    font-weight: bold;
+  
+}
+
+/**********************************RESPONSIVE*******************************/
+@media screen and (max-width:1024px){
+    .image img{
+        width: 280px;
+    }
+    .head h1{
+        width: 100%;
+    }
+    .address p:nth-child(2){
+        width: 110%;
+    }
+}
+
+@media screen and (max-width:768px){
+    .image img{
+        width: 200px;
+    }
+    .image{
+      margin-left: 0;
+      margin-right: 1rem;
+      display: flex;
+      justify-content: space-around;
+    }
+    h2{
+        font-size: 1.5rem;
+    }
+    .introduction{
+        margin-right: 2rem;
+    }
+    p{
+        font-size: 1rem;
+    }
+    li{
+        font-size: 1.5rem;
+    }
+
+    .persoSkill p, .proSkill p{
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .proSkill ul{
+        margin-top: -30px;
+    }
+    .proSkill p, .proSkill ul{
+        margin-bottom: 1rem;
+    }
+
+    .date1 p:nth-child(2), .date2 p:nth-child(2), .date3 p:nth-child(2), .date4 p:nth-child(2),.lead, .senior, .agence{
+        margin-top: -8px;
+    }
+
+    .footer button{
+        width: 16rem;
+        height: 4rem;
+        font-size: 1.2rem;
+    }
+}
+
+/* @media screen and (max-width:425px){
+    #intro{
+        font-size: 1rem;
+    }
+    .introduction h1{
+        font-size: 1.2rem;
+    }
+} */
