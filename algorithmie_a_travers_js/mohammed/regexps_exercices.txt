@@ -1,0 +1,12 @@
+Creer une regexp qui matche toutes les chaines contenant au moins un chiffre ou une majuscule.
+
+Creer une regexp qui matche tous les numeros de telephone qui commencent par 06.
+
+Creer une regexp qui matche une phrase correctement orthographiee : Une
+majuscule en debut de phrase, et un point a la fin.
+
+Creer une regexp qui matche toutes les addresses de sites webs au format w3 (https://www.siteweb.extension)
+
+Creer une regexp qui matche toutes les adresses IPv4
+
+Creer une regexp qui matche tous les IBAN Francais.

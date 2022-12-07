@@ -10,20 +10,42 @@
  * pages, et son prix. En JavaScript, le format JSON est utilise pour renseigner
  * ces informations.*/
 
+let n = 42;
+console.log(typeof(n));
+n = n.toString();
+
+
+
 // Un objet se declare comme une variable. On lui assigne une valeur encodee en JSON, entre accolades.
 
-var book = {
+let book = {
 	titre: "Vingt Mille Lieues sous les mers",
 	auteur: "Jules Verne",
 	style: "Aventure",
 	nombreDePages: 672,
-	prix: 4.99
+	prix: 4.99,
+	locataires: [
+					{
+						nom:	"Pierre",
+						adresse: "Machin",
+						age : 12
+					},
+
+					{
+						nom : "etc...",
+						adresse: "Machin",
+						age : 12
+					}
+				]
 };
+
+console.log(book['locataires'][1].nom);
+console.log(book.locataires);
 
 /* Notre objet book existe. Pour acceder a ses proprietes, on peut ecrire :
  * book.nomDeLaVariable
  * ou bien :
- * book['nomDeLaVariable'], ce qui permet d'acceder a une valeur dans book grace
+ * book['nomDeLaVariable'], ce qui permet d'acceder a une valeur dans book gracecd
  * a son nom sous forme de String dans une variable entre crochets, et pas forcement
  * par un nom inscrit en dur (non modifiable pendant l'execution) dans le code.*/
 

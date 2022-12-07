@@ -1,0 +1,117 @@
+p, li {
+    font-size: 21px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-weight: 200;
+}
+
+h3 {
+    font-weight: 200;
+    text-decoration: underline;
+    
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(45, 146, 10);
+    width: 750px;
+    height: 200px;
+    margin: auto;
+    border-radius: 100px;
+    border: 1px solid black;
+}
+
+header img {
+    width: 350px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 100px;
+}
+
+.header_title {
+    padding: 0px 100px 0px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.entete {
+    text-align: center;
+    margin: 50px;
+}
+
+.central {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.central-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.central-left div, .central-left h2 {
+    margin: 35px;
+}
+
+.date {
+    color: rgb(45, 146, 10);
+    padding-left: 15px;
+}
+
+.central-right {
+    background-color: rgb(45, 146, 10);
+    padding: 20px;
+    border-radius: 70px;
+}
+
+.central-right div {
+    margin: 0px 0px 80px 0px;
+}
+
+.central-right ul {
+    margin-bottom: 50px;
+}
+
+.reseaux {
+    margin: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.reseaux img {
+    width: 150px;
+}
+
+.reseaux img:hover {
+    cursor: pointer;
+}
+
+.btn-dl {
+    display: flex;
+    justify-content: center;
+    margin: 80px 0;
+}
+
+.btn-dl button{
+    height: 70px;
+    width: 400px;
+    background-color: rgb(45, 146, 10);
+    border: 1px solid black;
+    border-radius: 50px;
+    color: white;
+    font-size: 30px;
+}
+
+.btn-dl button:hover {
+    cursor: pointer;
+}

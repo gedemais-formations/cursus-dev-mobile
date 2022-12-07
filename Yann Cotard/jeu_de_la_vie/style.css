@@ -1,0 +1,9 @@
+body {
+  background-color: grey;
+  text-align: center;
+}
+
+#timer{
+  font-size: 20px;
+  color: rgb(3, 251, 255);;
+}

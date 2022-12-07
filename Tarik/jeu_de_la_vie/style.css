@@ -1,0 +1,45 @@
+body
+{
+  background-color: rgb(209, 209, 209);
+  text-align: center;
+}
+
+.btn {
+  margin: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#timer {
+  margin-right: 15px;
+}
+
+button {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+  transition: .2s ease-in-out 0s;
+}
+button:hover {
+  cursor: pointer;
+  background-color: rgb(122, 122, 196);
+  color: white;
+  transform: scale(1.05);
+}
+
+.color {
+  display: flex;
+  align-items: center;
+}
+
+input {
+  margin: 10px;
+}
+
+#zone {
+  border: 1px black solid;
+}

@@ -1,0 +1,53 @@
+<!doctype html>
+
+<link>
+
+	<head>
+		<meta charset='utf-8'>
+		<title>JS is fun !</title>
+		<link href="./style.css" rel="stylesheet">
+	</head>
+
+	<body>
+	<div>
+    
+
+    
+        <!-- Cycle counter and timer -->
+        <p id="timer">Cycle : 0 | 0.0s</p>
+
+        <!-- Speed formular allowing the user to choose a number of cycles per second-->
+        <label id="speed_form_label" for="speed_form">Cycles/second:</label>
+        <input type="number" id="update_speed_number" value="10"></input>
+        <input type="button" id="update_speed_button" value="Changement de vitesse" onclick="update_speed()"></input>
+
+        <!-- Pause, clear, and reset buttons, connected to their respective js functions -->
+        <input type="button" id="pause_button" value="Pause" onclick="pause()"></input>
+        <input type="button" id="reset_button" value="Melange" onclick="reset()"></input>
+
+        <!-- Color formulars allowing the user to choose alive and dead colors for cells -->
+        <label id="alive_color_form_label" for="alive_color_form">Alive:</label>
+        <input type="color" id="alive_color_form" value="#000000"></input>
+        <label id="dead_color_form_label" for="dead_color_form">Dead:</label>
+        <input type="color" id="dead_color_form" value="#FFFFFF"></input>
+
+        <!-- Button used to apply selected colors -->
+        <input type="button" id="update_colors.button" value="Changement de couleurs" onclick="update_colors()"></input>
+        <!-- Button used to clear the board -->
+        <input type="button" id="clear_form" value="Effacer" onclick="clear_board()"></input>
+        <br>
+		<!--
+			let x= document.getElementById("id_du_composant_html");
+		-->
+
+
+    
+	</div>
+		
+<div> 
+	  <canvas id="board"></canvas>
+            </div>
+
+		<script type="text/javascript" src="./main.js"></script>
+	</body>
+</html>
