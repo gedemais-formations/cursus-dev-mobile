@@ -1,0 +1,420 @@
+________________________________________________________________________________
+		- Introduction :
+	- Vi, Vim, Neovim : History
+Vim est un editeur de texte present sur presque toutes les distributions UNIX
+existantes. C'est un outil tres modulable, et par consequent adaptable a toutes
+sortes d'utilisations, de la simple prise de notes a la programmation, en passant
+par l'ecriture professionelle et le traitement de texte avance. Vim est herite de
+Vi, une version plus ancienne (1976) et moins riche en fonctionnalites que Vim
+(1991). Vim signifie "Vi Improved". En 2014, un fork de vim appele neovim a vu
+le jour. Ce projet est un reimplementation complete de vim, corrigeant de nombreux
+bugs, et se debarassant d'une grande quantite de code obsolete. Son utilisation
+est recommandee pour les nouveaux utilisateurs de vim, car il est bien plus
+populaire et riche en fonctionnalites, tout en gardant un fonctionnement
+strictement similaire a celui de Vim.
+
+	- Pourquoi apprendre a utiliser Vim de nos jours ?
+Vim est un outil d'edition tres puissant, s'adaptant a une grande variete de
+workflows differents, particulierement dans des travaux lies au developpement
+informatique. Les raisons qui poussent aujourd'hui encore des developpeurs a
+apprendre a se servir de Vim sont essentiellement les memes depuis environ 30 ans,
+a savoir sa flexibilite, sa legerete (configuration complete importable en quelques
+secondes sur n'importe quelle machine), et sa grande puissance d'edition. Vim
+associe un raccourci a presque toutes les touches du clavier, permettant l'utilisation
+d'une grammaire de raccourcis complexe, et par consequent une productivite
+demultipliee par rapport a celles des editeurs classiques.
+
+	- Editeur modal
+
+Le fonctionnement de Vim se decoupe en modes, ce qui en fait un editeur modal. 
+L'editeur se trouve en permanence dans un mode particulier, permettant differentes
+manipulations sur le texte a editer. Les quatre modes principaux de Vim sont :
+
+	- Le mode normal, a savoir le mode par defaut lorsque l'on lance Vim.
+		Ce mode est considere comme la zone de confort de l'utilisateur, car il
+		permet d'utiliser chaque touche comme un raccourci pour editer du texte,
+		sans ecrire de texte dans le fichier en cours d'edition. On peut y acceder
+		a partir des autres modes avec la touche echap.
+
+	- Le mode command-line, permet d'executer des commandes relatives a Vim,
+		ainsi que des commandes shell. Il est accessible a partir du mode normal
+		avec la touche :.
+
+	- Le mode insert, permet comme son nom l'indique d'inserer du texte dans
+		le fichier, en le tapant directement au clavier. Le texte est insere a
+		l'endroit ou se trouve le curseur. On peut acceder a ce mode a partir du
+		mode normal avec la touche i.
+
+	- Le mode visuel, permet de selectionner une portion de texte dans le
+		fichier en cours d'edition pour le manipuler. On peut y acceder a partir
+		du mode normal avec la touche v.
+
+	- vimrc / init.vim
+		Le fichier $HOME/.vimrc est un fichier contenant des commandes
+		(executables dans vim en mode command-line), qui s'executeront a chaque
+		lancement de vim. L'interet de ce fichier est de pouvoir enregistrer des
+		commandes liees au parametres de l'editeur, et de ne plus avoir a s'en
+		soucier par la suite. Pour les utilisateurs de neovim, ce fichier doit
+		se trouver dans $HOME/.config/nvim/ et s'appeler init.vim.
+________________________________________________________________________________
+	- Basics :
+
+- Lancer vim (avec ou sans fichier)
+		Pour lancer vim dans un terminal UNIX, il suffit de taper la commande
+		vim (ou nvim pour les utilisateurs de neovim), suivi du nom du fichier
+		que vous voulez editer. Si le fichier n'existe pas, vim le creera au
+		moment ou vous sauvegarderez. Si aucun fichier n'est renseigne, la page
+		d'acceuil par defaut de vim s'ouvrira.
+
+- Ouvrir un fichier dans un buffer
+		Pour ouvrir un fichier (existant ou non) dans un buffer, on peut utiliser
+		la commande edit, ou son abreviation e, suivie du nom du fichier que l'on
+		souhaite ouvrir. Si on renseigne un dossier a edit, il ouvrira alors
+		l'explorateur de fichier dans le buffer. Vous pourrez circuler dedans
+		et appuyer sur entree en passant sur le fichier que vous souhaitez editer.
+
+- Sauvegarder un fichier
+		Pour sauvegarder un fichier, il faut rentrer en mode command-line, puis
+		entrer la commande write (peut etre abregee par w).
+
+- Quitter vim
+		Pour quitter vim apres avoir sauvegarde un fichier, il faut entrer en mode
+		command-line et entrer la commande quit (peut etre abregee par q)
+
+- Sauvegarder et quitter
+	On peut egalement sauvegarder et quitter avec la commande wq.
+________________________________________________________________________________
+		- Navigation dans un buffer:
+
+- Fleches + HJKL
+		Il est important de rappeler que l'utilisation de la souris represente une
+		perte importante de temps et de productivite lorsque l'on edite du texte.
+		Aucun utilisateur de Vim ne devrait l'utiliser si il ou elle compte
+		exploiter tout le potentiel de cet editeur. 
+
+		Pour se deplacer dans le texte present dans le buffer, on peut directement
+		utiliser les fleches du clavier, ou bien les touches suivantes:
+		H (Gauche),
+		J (Bas),
+		K (Haut),
+		L (Droite).
+
+		L'utilisation de ces touches est specifique a Vim et a son fonctionnement,
+		c'est pourquoi elle est plus recommandee pour les debutants. Le deplacement
+		via ces touches est uniquement accessible en mode normal, c'est a dire
+		lorsque l'on edite pas de texte. Cela signifie que quand on utilise
+		uniquement ces touches pour se deplacer, on ne peux pas le faire apres
+		avoir insere du texte sans changer de mode. Cela peut paraitre handicapant
+		au debut, et a raison. Mais cette habitude poussera tous les debutants
+		a developper de nouvelles strategies d'edition, en utilisant les raccourcis
+		disponibles de maniere plus efficace, et moins fatiguante pour les mains.
+
+		Exemple fleches vs exemple hjkl.
+
+- Accolades
+		Pour se deplacer vers la ligne vide la plus proche du curseur, on utilise
+		les accolades { (vers le haut), et  } (vers le bas).
+
+- Shift + Fleches
+		Pour se deplacer de page en page (c'est a dire du nombre de lignes
+		affichees a l'ecran), on peut utiliser la touche shift combinee a
+		la fleche du haut, ou celle du bas.
+
+- Entree
+		La touche entree permet de se deplacer d'une ligne vers le bas en mode normal.
+
+- W / w
+		En mode normal, la touche W permet de se deplacer de mot en mot. Un mot
+		selon vim est une suite de caracteres affichables. Les mots sont donc
+		separes par des caracteres non affichables. Ce raccourci placera le
+		curseur au debut du mot suivant, c'est a dire sur le premier caractere de
+		la prochaine sequence de caracteres affichables precedee par des caracteres
+		non affichables. Sa version minuscule, w, permet de se deplacer de mot en
+		mot, en considerant les caracteres affichables et non-alphanumeriques comme
+		des mots a part entiere.
+
+- E / e
+		En mode normal, la touche E permet de se deplacer de mot en mot, en placant
+		le curseur a la fin de chaque mot. Ce raccourci considere les caracteres
+		affichables non-alphanumeriques comme constituants possibles des mots.
+		Sa version minuscule, e, fonctionne de la meme maniere, a l'exception pres
+		qu'il considere les caracteres affichables non-alphanumeriques comme des
+		mots a part entiere.
+
+- B / b
+		En mode normal, la touche B permet de se deplacer de mot en mot comme avec
+		W, mais a l'envers. Idem pour sa version minuscule, b, qui fonctionne a
+		rebours de la touche w.
+
+________________________________________________________________________________
+		- Raccourcis basiques d'ecriture, de copie, de remplacement et d'effacement:
+	
+- d (cut-line (normal)) + (n lines)
+		Pour couper une ligne, c'est a dire la copier puis l'effacer, on appuie
+		deux fois sur d. Pour effacer un certain nombre de lignes ou de caracteres,
+		on appuie sur d, puis on specifie un nombre de lignes ou de caracteres a
+		effacer, et enfin, on specifie la direction dans laquelle effacer avec hjkl,
+		ou avec les fleches du clavier.
+
+- y (yank-line (normal)) + (n lines)
+		Le fonctionnement du yank est similaire a celui du cut (raccourcis en d),
+		a l'exception pres qu'il n'efface rien apres avoir copie.
+
+- p (paste (normal / visual))
+		Pour coller une portion de texte copiee precedemment, on puis utiliser p
+		en mode normal. Ce raccourci peut egalement s'utiliser en mode visual, au
+		quel cas il remplacera le texte selectionne par le contenu de la derniere
+		copie, tout en copiant le texte precedemment selectionne.
+
+- y + p to replace
+		Utiliser y et p en mode visuel permet d'echanger des portions de texte
+		tres simplement.
+
+- x / X (cut (visual / normal on cursor-placed character))
+		Le raccourci x permet de couper le caractere sous le curseur en mode normal.
+		Sa version majuscule X permet de couper le caractere juste derriere le curseur.
+		En mode visuel, il permet de couper la selection.
+
+- u (undo (undolevels))
+		La touche u est l'equivalent du contole Z sur windows, il annule les
+		actions une par une. Le nombre d'actions enregistrees (et donc annulables)
+		peut etre renseigne dans la variable undolevels :
+
+		set undolevels=1000
+
+		En mode visuel, il permet de passer toutes les lettres presentes dans le
+		texte selectionne en minuscules, ou en majuscule avec U.
+
+- Ctrl-R (redo)
+		Le raccourci ctrl-R effectue a nouveau les actions annulees recemment.
+
+________________________________________________________________________________
+		- Raccourcis moins basiques d'ecriture, de copie, de remplacement et d'effacement:
+
+- a (move cursor one character to the right, normal -> insert)
+		Deplace le curseur d'un caractere vers la droite, et passe le mode de normal
+		a insert.
+
+- A (move cursor at the end of the line, normal -> insert)
+		Deplace le curseur a la fin de la ligne, et passe le mode de normal a insert.
+
+- s (cut + go to insert mode (visual / normal on cursor-placed character))
+		Similaire au raccourci x, mais passe le mode insert apres avoir coupe.
+		En majuscule, S permet d'effacer la ligne entiere et de passer en mode
+		insert a son debut.
+
+- o / O (open a new empty line under / up the cursor (normal -> insert))
+		Ouvre une nouvelle ligne vide sous le curseur, puis deplace le curseur
+		a son debut, et passe en mode insert. En majuscule, O ouvre la ligne
+		vide au dessus du curseur.
+
+- J
+	Permet de joindre la ligne sous le curseur a la fin de la ligne courante.
+
+- D
+	Permet de cut tout le texte jusqu'a la fin de la ligne.
+
+- < et > (indentation)
+	Permettent d'avancer ou de reculer le contenu d'une ou plusieurs lignes d'une
+	tabulation.
+
+________________________________________________________________________________
+		- Workflow Multi-Buffers:
+
+- Ouvrir et quitter un nouveau buffer (vertical | horizontal, fichier specifique)
+		Pour ouvrir un nouveau buffer, deux commandes sont disponibles:
+			- split (sp), qui ouvre un nouveau buffer en coupant le buffer courant
+			(dans lequel se trouve le curseur) en deux horizontalement.
+			- vsplit (vs ou vsp), idem, mais verticalement.
+		Pour quitter le buffer courant, on peut utiliser la commande quit (q).
+
+- Sauvegarder et quitter plusieurs buffers
+		Pour sauvegarder le contenu de tous les buffers d'un coup, on peut utiliser
+		la commande wa (pour write all), qui sauvegardera tous les buffers.
+		Pour fermer tous les buffers, on peut donc utiliser la commande qa.
+		On peut aussi utiliser wqa pour sauvegarder et fermer tous les buffers.
+
+- Navigation entre plusieurs buffers
+		Pour naviguer entre les buffers, c'est a dire deplacer le curseur d'un
+		buffer a un autre, on utilise la combinaison Ctrl-W <direction>.
+		La direction peut etre specifiee avec hjkl.
+
+		Voici un exemple de mapping dans le fichier $HOME/.vimrc ou
+		$HOME/.config/nvim/init.vim pour simplifier le raccourci a Ctrl-<direction>:
+		nnoremap <C-J> <C-W><C-J>
+		nnoremap <C-K> <C-W><C-K>
+		nnoremap <C-L> <C-W><C-L>
+		nnoremap <C-H> <C-W><C-H>
+		Plus de details sur ces lignes dans le chapitre vimrc
+
+- Ajuster la taille des buffers
+		En ayant ajoute la ligne "set mouse=a" dans le vimrc,
+		vous pouvez ajuster la taille de chaque buffer en maintenant le clic
+		gauche sur ses bordures pour les deplacer. Vous pouvez egalement egaliser
+		la taille de tous les buffers, en utilisant le raccourci Ctrl-W =
+
+- Terminal dans vim
+		Vous pouvez egalement ouvrir un terminal dans vim avec la commande
+		terminal (term). Cette commande fonctionne de maniere differente dans
+		vim et dans neovim. Sous vim, elle ouvrira un terminal dans l'espace d'un
+		nouveau buffer, et permettra de lancer des commandes dedans, sans pouvoir
+		deplacer son curseur a l'interieur. Sous neovim, la commande passe le buffer
+		en mode terminal, c'est a dire que son contenu sera perpetuellement rafraichit
+		par le terminal, ce qui permet de se deplacer dedans avec le curseur en mode
+		normal, et de yank des portions de textes pour les copier dans d'autres
+		buffers. Le terminal de neovim considere le mode insert comme une entree
+		clavier redirigee vers le shell. Le terminal integre a vim est un outil
+		permettant une vitesse de developpement plus elevee, car il permet d'eviter
+		un certain nombre d'actions dans le cycle de travail classique d'un dev:
+		modification -> retour au shell -> compilation et / ou tests -> retour a l'editeur
+
+		Exemple video :
+		(Meme cerveau (avec exemple video + chrono pour chaque),
+		- Ouvrir vim pour editer du texte, puis le quitter pour revenir au
+			terminal, avant de le relancer, et ce a chaque modification.
+
+		- Ouvrir vim, utiliser control-z pour le suspendre et revenir au shell,
+			avant de le relancer avec fg.
+
+		- Ouvrir un terminal dans vim.)
+
+________________________________________________________________________________
+		- Workflow Multi-Onglets:
+- Ouvrir un nouvel onglet (tabs, tabedit, tabfind, tabclose, tabonly)
+		Un onglet vim est un groupe de buffers s'affichants sur un ecran. Par
+		defaut, un seul onglet est ouvert lorsqu'on lance vim. Ouvrir plusieurs
+		onglets peut permettre de multiplier simplement le nombre de fichiers
+		ouverts simultanements, ce qui est particulierement utile pour de gros
+		projets, ou en cas d'ecran de moyenne-faible resolution. Pour ouvrir un
+		nouvel onglet dans vim, on utilise la commande tabnew. On peut lui renseigner
+		un fichier ou un dossier, et il ouvrira un nouvel onglet compose d'un seul
+		buffer.
+
+- Navigation entre plusieurs onglets
+		Pour se deplacer d'un onglets, on peut utiliser les raccourcis gt
+		(avancer) et gT (reculer) en mode normal. Il est egalement possible de
+		prefixer le raccourci gt de l'index du tab que l'on souhaite ouvrir
+		(1 - nombre d'onglets). On peut egalement utiliser la commande tabs, qui liste
+		chaque onglets et les buffers ouverts dedans.
+________________________________________________________________________________
+		- Chercher, substituer:
+- Pattern search and navigation between instances (set showmatch)
+		En mode normal, il est possible de rechercher un pattern dans les buffers
+		ouverts avec la touche /. En ajoutant la variable showmatch au vimrc, vim
+		surlignera les occurences correspondantes a la recherche. Il est possible
+		de naviguer entre toutes ces occurences en mode normal avec n et N, pour
+		naviguer respectivement vers l'occurence suivante, et l'occurence precedente.
+		Pour desactiver le surlignement de la derniere recherche effectuee, on peut
+		utiliser la commande noh.
+
+- Search and replace
+		La fonctionnalite de search-and-replace de vim s'utilise avec la commande
+		substitute, abregee s la plupart du temps.
+		Examples (https://vim.fandom.com/wiki/Search_and_replace)
+________________________________________________________________________________
+		- Folding:
+- Folding utility
+		Le folding est souvent utile lorsqu'une ou plusieurs entites de code
+		(comme des fonctions ou des declarations en dur de donnees) deviennent
+		inutiles a afficher. Le folding permet alors de placer le curseur dans
+		cette entite, et de la plier de differentes manieres.
+
+	- Folding parameters in vimrc
+________________________________________________________________________________
+		- Macros-functions :
+	Les macro-fonctions sont une fonctionnalite de vim particulierement pratique,
+	puisqu'elles permettent d'enregistrer une sequence d'actions, et de pouvoir la
+	repeter par la suite grace a un raccourci. On peut egalement garder plusieurs
+	methodes enregistrees a la fois, et les appeler les unes dans les autres, ce qui
+	se revele particulierement dans les cas de meta-programmation, ou l'on souhaite
+	generer du code de maniere procedurale.
+
+- How to record a macro-function in vim
+		En mode normal, il suffit d'appuyer sur q, suivi d'une touche du clavier servant
+		d'identifiant a la fonction, pour commencer a enregistrer une macro. Cette macro
+		contiendra absolument toutes les actions effectuees pendant son enregistrement,
+		il faut donc etre precautionneux et penser a la sequence d'actions a realiser
+		avant de commencer son enregistrement. Pour stopper l'enregistrement, on repasse
+		en mode normal, et on appuie a nouveau sur q (une macro peut egalement s'appeler q).
+
+- How to call macros functions
+		Pour invoquer une fonction macro, il suffit de passer en mode normal, puis d'entrer
+		@ suivi du caractere identifiant de la fonction. Pour rappeler la derniere macro
+		appelee, on peut simplement entrer @ une deuxieme fois.
+
+	Usage examples (code generation, long text series processing)
+________________________________________________________________________________
+- vimrc / init.vim:
+	- Basics parameters (mouse, clipboard, nu rnu, ruler, nowrap, ttyfast, showmatch, scrolloff)
+	- Characters parameters (tab spaces, indentation)
+	- Mouse handling parameters
+	- System clipboards
+	- Colorschemes
+	- encoding
+	- auto cmd (auto-update of vimrc)
+________________________________________________________________________________
+- Plug-ins:
+	- vim-plug
+		Vim-Plug le manager de plug-in le plus populaire pour vim. Il permet
+		d'installer, de gerer et de desinstaller la majorite des milliers de plug-ins
+		utilisables dans vim. Pour l'installer, rendez-vous sur ce lien et suivez
+		les instructions d'installation specifiques a votre machine :
+		https://github.com/junegunn/vim-plug.
+		Pour vous permettre de pouvoir installer des plugins par la suite, il vous
+		faudra ajouter les deux lignes suivantes a votre vimrc:
+
+		call plug#begin()
+		call plug#end()
+
+		Ces deux lignes definiront l'espace dans lequel vous renseignerez les
+		plugins que vous souhaitez installer. path designe le chemin vers lequel
+		se trouvera le dossier plugged/ qui contiendra les plug-ins installes.
+
+	- Installer un plug-in
+		Pour installer un plug-in avec vim-plug, il suffit d'ajouter le lien github
+		du plug-in entre guillemets, precede de la commande Plug, entre les deux
+		lignes ajoutees precedemment. Le plug-in est maintenant connu de vim-plug,
+		il suffira donc de l'installer une seule fois une fois vim lance.
+
+	- Importer sa config vim sur n'importe quelle machine
+		Une fois que la liste des plug-ins est presente dans le vimrc, il suffit
+		de demarrer vim, et de lancer la commande PlugInstall. vim-plug ira alors
+		consulter la liste des plug-ins. Si un plug-in n'est pas installe, ou
+		qu'une nouvelle version est disponible, vim-plug l'installera automatiquement
+		en quelques secondes. 
+
+	- Top 5 plug-ins
+		Les cinq plug-ins que je considere comme etant les plus utiles :
+		- Telescope
+		- NERDTree
+		- vim-snippets
+		- vim-dooto
+		- vim-airline
+
+	- Creer un plug-in
+________________________________________________________________________________
+Raccourcis et bindings persos
+	- Basics variables sets
+	- Split directions
+	- jj <ESC>
+	- split panes management
+	- Terminal management
+	- System copy and paste
+	- Installation d'un colorscheme
+________________________________________________________________________________
+Grammaire de raccourcis
+________________________________________________________________________________
+Un mot sur le workflow et l'apprentissage
+	L'apprentissage est souvent malgre lui l'aspect decourageant de vim.
+	Tous ses utilisateurs connaissent le sentiment de toute puissance en arrivant
+	sur une page de documentation vim contenant nombre de raccourcis utiles pour
+	ses usages, avant d'abandonner face a la masse d'informations a retenir et a
+	utiliser au quotidien. Tous les utilisateurs confirmes de vim le diront :
+	L'apprentissage des raccourcis, et l'amenagement du workflow sous vim est
+	difficile, et necessite
+________________________________________________________________________________
+Mode Visual Block
+________________________________________________________________________________
+ctrl-a / ctrl-x
+________________________________________________________________________________
+. shortcut
